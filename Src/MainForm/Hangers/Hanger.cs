@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Hanger
+﻿namespace Hangers
 {
     /// <summary>
     /// Класс создания данных Hangers
@@ -51,6 +45,9 @@ namespace Hanger
         /// </summary>
         private int _lengthCenterRecess;
 
+        /// <summary>
+        /// Чтение и запись высоты плечиков
+        /// </summary>
         public int Height
         {
             get
@@ -59,9 +56,93 @@ namespace Hanger
             }
             set
             {
-                
+                _height = value;
             }
 
+        }
+
+        public int Length
+        {
+            get
+            {
+                return _length;
+            }
+            set
+            {
+                _length = value;
+            }
+        }
+
+        public int Width
+        {
+            get
+            {
+                return _width;
+            }
+            set
+            {
+                _width = value;
+            }
+        }
+
+        public int InnerRadius
+        {
+            get
+            {
+                return _innerRadius;
+            }
+            set
+            {
+                _innerRadius = value;
+            }
+        }
+
+        public int OuterRadius
+        {
+            get
+            {
+                return _outerRadius;
+            }
+            set
+            {
+                _outerRadius = value;
+            }
+        }
+
+        public int InnerHeight
+        {
+            get
+            {
+                return _innerHeight;
+            }
+            set
+            {
+                _innerHeight = value;
+            }
+        }
+
+        public int RecessRadius
+        {
+            get
+            {
+                return _recessRadius;
+            }
+            set
+            {
+                _recessRadius = value;
+            }
+        }
+
+        public int LengthCenterRecess
+        {
+            get
+            {
+                return _lengthCenterRecess;
+            }
+            set
+            {
+                _lengthCenterRecess = value;
+            }
         }
 
     }

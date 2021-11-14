@@ -168,6 +168,7 @@ namespace HangersPlugin
             this.LengthTextBox.Size = new System.Drawing.Size(71, 20);
             this.LengthTextBox.TabIndex = 10;
             this.LengthToolTip.SetToolTip(this.LengthTextBox, "Length of Hangers must be between: 390 - 470");
+            this.LengthTextBox.TextChanged += new System.EventHandler(this.LengthTextBox_TextChanged);
             // 
             // WidthTextBox
             // 
@@ -176,6 +177,7 @@ namespace HangersPlugin
             this.WidthTextBox.Size = new System.Drawing.Size(71, 20);
             this.WidthTextBox.TabIndex = 11;
             this.WidthToolTip.SetToolTip(this.WidthTextBox, "Width of Hangers must be between: 4 - 6");
+            this.WidthTextBox.TextChanged += new System.EventHandler(this.WidthTextBox_TextChanged);
             // 
             // InnerRadiusTextBox
             // 
@@ -184,9 +186,11 @@ namespace HangersPlugin
             this.InnerRadiusTextBox.Size = new System.Drawing.Size(71, 20);
             this.InnerRadiusTextBox.TabIndex = 12;
             this.InnerRadiusToolTip.SetToolTip(this.InnerRadiusTextBox, "Inner Radius of Hangers must be between: 15 - 25");
+            this.InnerRadiusTextBox.TextChanged += new System.EventHandler(this.InnerRadiusTextBox_TextChanged);
             // 
             // OuterRadiusTextBox
             // 
+            this.OuterRadiusTextBox.Enabled = false;
             this.OuterRadiusTextBox.Location = new System.Drawing.Point(332, 155);
             this.OuterRadiusTextBox.Name = "OuterRadiusTextBox";
             this.OuterRadiusTextBox.Size = new System.Drawing.Size(71, 20);
@@ -195,6 +199,7 @@ namespace HangersPlugin
             // 
             // InnerHeightTextBox
             // 
+            this.InnerHeightTextBox.Enabled = false;
             this.InnerHeightTextBox.Location = new System.Drawing.Point(332, 181);
             this.InnerHeightTextBox.Name = "InnerHeightTextBox";
             this.InnerHeightTextBox.Size = new System.Drawing.Size(71, 20);
@@ -208,9 +213,11 @@ namespace HangersPlugin
             this.RecessRadiusTextBox.Size = new System.Drawing.Size(71, 20);
             this.RecessRadiusTextBox.TabIndex = 15;
             this.RecessRadiusToolTip.SetToolTip(this.RecessRadiusTextBox, "Recess radius always must be: 3 mm");
+            this.RecessRadiusTextBox.TextChanged += new System.EventHandler(this.RecessRadiusTextBox_TextChanged);
             // 
             // LengthCenterRecessTextBox
             // 
+            this.LengthCenterRecessTextBox.Enabled = false;
             this.LengthCenterRecessTextBox.Location = new System.Drawing.Point(332, 233);
             this.LengthCenterRecessTextBox.Name = "LengthCenterRecessTextBox";
             this.LengthCenterRecessTextBox.Size = new System.Drawing.Size(71, 20);
