@@ -79,5 +79,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Hangers\Hangers.csproj">
+      <Project>{e07c4e54-c794-4a2c-b7a9-cad7d46b2d67}</Project>
+      <Name>Hangers</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

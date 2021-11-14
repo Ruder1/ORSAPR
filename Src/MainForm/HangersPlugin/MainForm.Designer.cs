@@ -29,6 +29,7 @@ namespace HangersPlugin
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.MainTextLabel = new System.Windows.Forms.Label();
             this.HeightLabel = new System.Windows.Forms.Label();
             this.LengthLabel = new System.Windows.Forms.Label();
@@ -47,6 +48,14 @@ namespace HangersPlugin
             this.RecessRadiusTextBox = new System.Windows.Forms.TextBox();
             this.LengthCenterRecessTextBox = new System.Windows.Forms.TextBox();
             this.BuildButton = new System.Windows.Forms.Button();
+            this.HeightToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.LengthToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.WidthToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.InnerRadiusToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.OuterRadiusToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.InnerHeightToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.RecessRadiusToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.LengthCenterRecessToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // MainTextLabel
@@ -144,10 +153,13 @@ namespace HangersPlugin
             // 
             // HeightTextBox
             // 
+            this.HeightTextBox.AccessibleDescription = "";
             this.HeightTextBox.Location = new System.Drawing.Point(332, 51);
             this.HeightTextBox.Name = "HeightTextBox";
             this.HeightTextBox.Size = new System.Drawing.Size(71, 20);
             this.HeightTextBox.TabIndex = 9;
+            this.HeightToolTip.SetToolTip(this.HeightTextBox, "Height of Hangers must be between: 200 - 230");
+            this.HeightTextBox.TextChanged += new System.EventHandler(this.HeightTextBox_TextChanged);
             // 
             // LengthTextBox
             // 
@@ -155,6 +167,7 @@ namespace HangersPlugin
             this.LengthTextBox.Name = "LengthTextBox";
             this.LengthTextBox.Size = new System.Drawing.Size(71, 20);
             this.LengthTextBox.TabIndex = 10;
+            this.LengthToolTip.SetToolTip(this.LengthTextBox, "Length of Hangers must be between: 390 - 470");
             // 
             // WidthTextBox
             // 
@@ -162,6 +175,7 @@ namespace HangersPlugin
             this.WidthTextBox.Name = "WidthTextBox";
             this.WidthTextBox.Size = new System.Drawing.Size(71, 20);
             this.WidthTextBox.TabIndex = 11;
+            this.WidthToolTip.SetToolTip(this.WidthTextBox, "Width of Hangers must be between: 4 - 6");
             // 
             // InnerRadiusTextBox
             // 
@@ -169,6 +183,7 @@ namespace HangersPlugin
             this.InnerRadiusTextBox.Name = "InnerRadiusTextBox";
             this.InnerRadiusTextBox.Size = new System.Drawing.Size(71, 20);
             this.InnerRadiusTextBox.TabIndex = 12;
+            this.InnerRadiusToolTip.SetToolTip(this.InnerRadiusTextBox, "Inner Radius of Hangers must be between: 15 - 25");
             // 
             // OuterRadiusTextBox
             // 
@@ -176,6 +191,7 @@ namespace HangersPlugin
             this.OuterRadiusTextBox.Name = "OuterRadiusTextBox";
             this.OuterRadiusTextBox.Size = new System.Drawing.Size(71, 20);
             this.OuterRadiusTextBox.TabIndex = 13;
+            this.OuterRadiusToolTip.SetToolTip(this.OuterRadiusTextBox, "The outer radius is built according to the dependence: Inner Radius + 10");
             // 
             // InnerHeightTextBox
             // 
@@ -183,6 +199,7 @@ namespace HangersPlugin
             this.InnerHeightTextBox.Name = "InnerHeightTextBox";
             this.InnerHeightTextBox.Size = new System.Drawing.Size(71, 20);
             this.InnerHeightTextBox.TabIndex = 14;
+            this.InnerHeightToolTip.SetToolTip(this.InnerHeightTextBox, "The inner height is built according to the dependence: (Height-1)/2");
             // 
             // RecessRadiusTextBox
             // 
@@ -190,6 +207,7 @@ namespace HangersPlugin
             this.RecessRadiusTextBox.Name = "RecessRadiusTextBox";
             this.RecessRadiusTextBox.Size = new System.Drawing.Size(71, 20);
             this.RecessRadiusTextBox.TabIndex = 15;
+            this.RecessRadiusToolTip.SetToolTip(this.RecessRadiusTextBox, "Recess radius always must be: 3 mm");
             // 
             // LengthCenterRecessTextBox
             // 
@@ -197,6 +215,7 @@ namespace HangersPlugin
             this.LengthCenterRecessTextBox.Name = "LengthCenterRecessTextBox";
             this.LengthCenterRecessTextBox.Size = new System.Drawing.Size(71, 20);
             this.LengthCenterRecessTextBox.TabIndex = 16;
+            this.LengthCenterRecessToolTip.SetToolTip(this.LengthCenterRecessTextBox, "Length from center to recess is built according to the dependence: Length * 3/4");
             // 
             // BuildButton
             // 
@@ -207,6 +226,7 @@ namespace HangersPlugin
             this.BuildButton.TabIndex = 17;
             this.BuildButton.Text = "Build";
             this.BuildButton.UseVisualStyleBackColor = true;
+            this.BuildButton.Click += new System.EventHandler(this.BuildButton_Click);
             // 
             // MainForm
             // 
@@ -258,6 +278,14 @@ namespace HangersPlugin
         private System.Windows.Forms.TextBox RecessRadiusTextBox;
         private System.Windows.Forms.TextBox LengthCenterRecessTextBox;
         private System.Windows.Forms.Button BuildButton;
+        private System.Windows.Forms.ToolTip HeightToolTip;
+        private System.Windows.Forms.ToolTip LengthToolTip;
+        private System.Windows.Forms.ToolTip WidthToolTip;
+        private System.Windows.Forms.ToolTip InnerRadiusToolTip;
+        private System.Windows.Forms.ToolTip OuterRadiusToolTip;
+        private System.Windows.Forms.ToolTip InnerHeightToolTip;
+        private System.Windows.Forms.ToolTip RecessRadiusToolTip;
+        private System.Windows.Forms.ToolTip LengthCenterRecessToolTip;
     }
 }
 
