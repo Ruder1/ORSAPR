@@ -104,7 +104,7 @@ namespace HangersPlugin
             this.OuterRadiusLabel.AccessibleRole = System.Windows.Forms.AccessibleRole.ScrollBar;
             this.OuterRadiusLabel.AutoSize = true;
             this.OuterRadiusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.OuterRadiusLabel.Location = new System.Drawing.Point(12, 153);
+            this.OuterRadiusLabel.Location = new System.Drawing.Point(12, 205);
             this.OuterRadiusLabel.Name = "OuterRadiusLabel";
             this.OuterRadiusLabel.Size = new System.Drawing.Size(147, 20);
             this.OuterRadiusLabel.TabIndex = 4;
@@ -135,7 +135,7 @@ namespace HangersPlugin
             // 
             this.RecessRadiusLabel.AutoSize = true;
             this.RecessRadiusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RecessRadiusLabel.Location = new System.Drawing.Point(12, 205);
+            this.RecessRadiusLabel.Location = new System.Drawing.Point(12, 153);
             this.RecessRadiusLabel.Name = "RecessRadiusLabel";
             this.RecessRadiusLabel.Size = new System.Drawing.Size(161, 20);
             this.RecessRadiusLabel.TabIndex = 7;
@@ -191,7 +191,7 @@ namespace HangersPlugin
             // OuterRadiusTextBox
             // 
             this.OuterRadiusTextBox.Enabled = false;
-            this.OuterRadiusTextBox.Location = new System.Drawing.Point(332, 155);
+            this.OuterRadiusTextBox.Location = new System.Drawing.Point(332, 205);
             this.OuterRadiusTextBox.Name = "OuterRadiusTextBox";
             this.OuterRadiusTextBox.Size = new System.Drawing.Size(71, 20);
             this.OuterRadiusTextBox.TabIndex = 13;
@@ -208,7 +208,7 @@ namespace HangersPlugin
             // 
             // RecessRadiusTextBox
             // 
-            this.RecessRadiusTextBox.Location = new System.Drawing.Point(332, 207);
+            this.RecessRadiusTextBox.Location = new System.Drawing.Point(332, 155);
             this.RecessRadiusTextBox.Name = "RecessRadiusTextBox";
             this.RecessRadiusTextBox.Size = new System.Drawing.Size(71, 20);
             this.RecessRadiusTextBox.TabIndex = 15;

@@ -124,10 +124,10 @@
     <value>146, 17</value>
   </metadata>
   <metadata name="WidthToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>396, 17</value>
+    <value>273, 16</value>
   </metadata>
   <metadata name="InnerRadiusToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>521, 17</value>
+    <value>385, 17</value>
   </metadata>
   <metadata name="OuterRadiusToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>535, 18</value>
@@ -140,20 +140,5 @@
   </metadata>
   <metadata name="LengthCenterRecessToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>1002, 21</value>
-  </metadata>
-  <metadata name="HeightToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="LengthToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>146, 17</value>
-  </metadata>
-  <metadata name="WidthToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>273, 16</value>
-  </metadata>
-  <metadata name="InnerRadiusToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>385, 17</value>
-  </metadata>
-  <metadata name="RecessRadiusToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>837, 21</value>
   </metadata>
 </root>
