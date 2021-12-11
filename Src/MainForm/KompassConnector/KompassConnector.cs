@@ -1,14 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Kompas6Constants3D;
+using System.Runtime.InteropServices;
+using FlaskWurthzKompasBuilder.Service;
 using Kompas6API5;
+using Kompas6Constants3D;
 
-namespace KompassConnector
+namespace HangerKompasBuilder
 {
-    internal class KompasConnector
+    internal class KompassConnector
     {
         /// <summary>
         /// Объект интерфейса KompasObject для взимодействия с Kompas 3D
@@ -23,7 +21,7 @@ namespace KompassConnector
         /// <summary>
         /// Конструктор класса, выполняет запуск Kompas 3D
         /// </summary>
-        public KompasWrapper()
+        public KompassConnector()
         {
             var progId = "KOMPAS.Application.5";
             try

@@ -31,6 +31,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Kompas6API5">
+      <HintPath>..\KompasAPI\Kompas6API5.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Kompas6Constants3D">
+      <HintPath>..\KompasAPI\Kompas6Constants3D.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -42,8 +50,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HangerBuilder.cs" />
-    <Compile Include="KompasConnector.cs" />
+    <Compile Include="KompassConnector.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\Marshal2.cs" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="stdole">
@@ -55,6 +64,12 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Hangers\Hangers.csproj">
+      <Project>{e07c4e54-c794-4a2c-b7a9-cad7d46b2d67}</Project>
+      <Name>Hangers</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
