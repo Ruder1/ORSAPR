@@ -25,20 +25,10 @@ namespace HangersPlugin
         /// </summary>
         private readonly Color _correctBackColor = Color.White;
 
-        private Hanger _hanger = new Hanger();
-
-        public Hanger Hanger
-        {
-            get
-            {
-                return _hanger;
-            }
-
-            set
-            {
-
-            }
-        }
+        /// <summary>
+        /// Поле параметров плечиков
+        /// </summary>
+        private HangerParametrs _hangerParametrs = new HangerParametrs();
 
         public MainForm()
         {
@@ -52,18 +42,19 @@ namespace HangersPlugin
 
         private void HeightTextBox_TextChanged(object sender, EventArgs e)
         {
+            
             if (int.TryParse(HeightTextBox.Text, out int result))
             {
-                if (result >= 200 && result <= 230)
-                {
-                    Hanger.Height = result;
+               try
+               {
+                    _hangerParametrs.Height = result;
                     HeightTextBox.BackColor = _correctBackColor;
                     InnerHeightSize(result);
-                }
-                else
-                {
-                    HeightTextBox.BackColor = _incorrectBackColor;
-                }
+               }
+               catch
+               {
+                   HeightTextBox.BackColor = _incorrectBackColor;
+               }
             }
             else
             {
@@ -76,13 +67,13 @@ namespace HangersPlugin
         {
             if (int.TryParse(LengthTextBox.Text, out int result))
             {
-                if (result >= 390 && result <= 470)
+                try 
                 {
-                    Hanger.Length = result;
+                    _hangerParametrs.Length = result;
                     LengthTextBox.BackColor = _correctBackColor;
                     LengthCenterRecessSize(result);
                 }
-                else
+                catch
                 {
                     LengthTextBox.BackColor = _incorrectBackColor;
                 }
@@ -97,12 +88,12 @@ namespace HangersPlugin
         {
             if (int.TryParse(WidthTextBox.Text, out int result))
             {
-                if (result >= 4 && result <= 6)
+                try
                 {
-                    Hanger.Width = result;
+                    _hangerParametrs.Width = result;
                     WidthTextBox.BackColor = _correctBackColor;
                 }
-                else
+                catch
                 {
                     WidthTextBox.BackColor = _incorrectBackColor;
                 }
@@ -117,13 +108,13 @@ namespace HangersPlugin
         {
             if (int.TryParse(InnerRadiusTextBox.Text, out int result))
             {
-                if (result >= 15 && result <= 25)
+                try
                 {
-                    Hanger.InnerRadius = result;
+                    _hangerParametrs.InnerRadius = result;
                     InnerRadiusTextBox.BackColor = _correctBackColor;
                     OuterRadiusSize(result);
                 }
-                else
+                catch
                 {
                     InnerRadiusTextBox.BackColor = _incorrectBackColor;
                 }
@@ -138,12 +129,12 @@ namespace HangersPlugin
         {
             if (int.TryParse(RecessRadiusTextBox.Text, out int result))
             {
-                if (result >= 3 && result <= 4)
+                try
                 {
-                    Hanger.RecessRadius = result;
+                    _hangerParametrs.RecessRadius = result;
                     RecessRadiusTextBox.BackColor = _correctBackColor;
                 }
-                else
+                catch
                 {
                     RecessRadiusTextBox.BackColor = _incorrectBackColor;
                 }
@@ -154,25 +145,37 @@ namespace HangersPlugin
             }
         }
 
+        /// <summary>
+        /// Метод расчета наружного радиуса по зависимости
+        /// </summary>
+        /// <param name="innerRadius">Внутренний радиус</param>
         private void OuterRadiusSize(int innerRadius)
         {
-            Hanger.OuterRadius = innerRadius + 10;
+            _hangerParametrs.OuterRadius = innerRadius + 10;
             OuterRadiusTextBox.BackColor = _correctBackColor;
-            OuterRadiusTextBox.Text = Hanger.OuterRadius.ToString();
+            OuterRadiusTextBox.Text = _hangerParametrs.OuterRadius.ToString();
         }
 
+        /// <summary>
+        /// Метод расчета внутренней высоты плечиков по зависимости
+        /// </summary>
+        /// <param name="height">Высота плечиков</param>
         private void InnerHeightSize(int height)
         {
-            Hanger.InnerHeight = (height - 10) / 2;
+            _hangerParametrs.InnerHeight = (height - 10) / 2;
             InnerHeightTextBox.BackColor = _correctBackColor;
-            InnerHeightTextBox.Text = Hanger.InnerHeight.ToString();
+            InnerHeightTextBox.Text = _hangerParametrs.InnerHeight.ToString();
         }
 
+        /// <summary>
+        /// Метод для расчета расположение выемок от центра
+        /// </summary>
+        /// <param name="length">Длина плечиков</param>
         private void LengthCenterRecessSize(int length)
         {
-            Hanger.LengthCenterRecess = (length * 3) / 4;
+            _hangerParametrs.LengthCenterRecess = (length * 3) / 4;
             LengthCenterRecessTextBox.BackColor = _correctBackColor;
-            LengthCenterRecessTextBox.Text = Hanger.LengthCenterRecess.ToString();
+            LengthCenterRecessTextBox.Text = _hangerParametrs.LengthCenterRecess.ToString();
         }
     }
 }

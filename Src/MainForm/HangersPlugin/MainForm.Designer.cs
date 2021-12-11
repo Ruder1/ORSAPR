@@ -1,5 +1,4 @@
-﻿
-namespace HangersPlugin
+﻿namespace HangersPlugin
 {
     partial class MainForm
     {
@@ -212,7 +211,7 @@ namespace HangersPlugin
             this.RecessRadiusTextBox.Name = "RecessRadiusTextBox";
             this.RecessRadiusTextBox.Size = new System.Drawing.Size(71, 20);
             this.RecessRadiusTextBox.TabIndex = 15;
-            this.RecessRadiusToolTip.SetToolTip(this.RecessRadiusTextBox, "Recess radius always must be: 3 mm");
+            this.RecessRadiusToolTip.SetToolTip(this.RecessRadiusTextBox, "Recess radius  must  be between: 3 - 4");
             this.RecessRadiusTextBox.TextChanged += new System.EventHandler(this.RecessRadiusTextBox_TextChanged);
             // 
             // LengthCenterRecessTextBox
