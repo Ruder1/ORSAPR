@@ -188,7 +188,7 @@
             this.InnerRadiusTextBox.Size = new System.Drawing.Size(71, 20);
             this.InnerRadiusTextBox.TabIndex = 12;
             this.InnerRadiusTextBox.Text = "15";
-            this.InnerRadiusToolTip.SetToolTip(this.InnerRadiusTextBox, "Inner Radius of Hangers must be between: 15 - 25");
+            this.InnerRadiusToolTip.SetToolTip(this.InnerRadiusTextBox, "Inner Radius of Hangers must be between: 15 - 20");
             this.InnerRadiusTextBox.TextChanged += new System.EventHandler(this.InnerRadiusTextBox_TextChanged);
             // 
             // OuterRadiusTextBox
@@ -198,7 +198,7 @@
             this.OuterRadiusTextBox.Name = "OuterRadiusTextBox";
             this.OuterRadiusTextBox.Size = new System.Drawing.Size(71, 20);
             this.OuterRadiusTextBox.TabIndex = 13;
-            this.OuterRadiusToolTip.SetToolTip(this.OuterRadiusTextBox, "The outer radius is built according to the dependence: Inner Radius + 10");
+            this.OuterRadiusToolTip.SetToolTip(this.OuterRadiusTextBox, "The outer radius is built according to the dependence: Inner Radius + 15");
             // 
             // InnerHeightTextBox
             // 

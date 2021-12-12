@@ -140,7 +140,7 @@ namespace HangersPlugin
         /// <param name="innerRadius">Внутренний радиус</param>
         private void OuterRadiusSize(int innerRadius)
         {
-            _hangerParametrs.OuterRadius = innerRadius + 10;
+            _hangerParametrs.OuterRadius = innerRadius + 15;
             OuterRadiusTextBox.BackColor = _correctBackColor;
             OuterRadiusTextBox.Text = _hangerParametrs.OuterRadius.ToString();
         }

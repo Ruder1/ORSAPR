@@ -110,7 +110,7 @@
             set
             {
                 _minValue = 15;
-                _maxValue = 25;
+                _maxValue = 20;
                 ValidatorHangerParametrs.CheckParametrsValue(_minValue, _maxValue, value);
                 _innerRadius = value;
             }
