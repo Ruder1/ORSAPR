@@ -4,12 +4,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.31702.278
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HangersUI", "HangersPlugin\HangersUI.csproj", "{788C8035-857F-4024-A41D-E7B38F78B5A5}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7C563A60-3034-400C-9725-6AFE2E4F2A9A} = {7C563A60-3034-400C-9725-6AFE2E4F2A9A}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hangers", "Hangers\Hangers.csproj", "{E07C4E54-C794-4A2C-B7A9-CAD7D46B2D67}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HangerKompasBuilder", "KompassConnector\HangerKompasBuilder.csproj", "{FDEB2576-38EE-4334-B62B-7CBFEBA6F524}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HangerUnitTests", "HangerUnitTests\HangerUnitTests.csproj", "{C22B8FD7-38B1-45AF-AD6C-EC98DF214DC2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HangerKompassBuilder", "HangerKompassBuilder\HangerKompassBuilder.csproj", "{7C563A60-3034-400C-9725-6AFE2E4F2A9A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E07C4E54-C794-4A2C-B7A9-CAD7D46B2D67} = {E07C4E54-C794-4A2C-B7A9-CAD7D46B2D67}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,14 +31,14 @@ Global
 		{E07C4E54-C794-4A2C-B7A9-CAD7D46B2D67}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E07C4E54-C794-4A2C-B7A9-CAD7D46B2D67}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E07C4E54-C794-4A2C-B7A9-CAD7D46B2D67}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FDEB2576-38EE-4334-B62B-7CBFEBA6F524}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FDEB2576-38EE-4334-B62B-7CBFEBA6F524}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FDEB2576-38EE-4334-B62B-7CBFEBA6F524}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FDEB2576-38EE-4334-B62B-7CBFEBA6F524}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C22B8FD7-38B1-45AF-AD6C-EC98DF214DC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C22B8FD7-38B1-45AF-AD6C-EC98DF214DC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C22B8FD7-38B1-45AF-AD6C-EC98DF214DC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C22B8FD7-38B1-45AF-AD6C-EC98DF214DC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C563A60-3034-400C-9725-6AFE2E4F2A9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C563A60-3034-400C-9725-6AFE2E4F2A9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C563A60-3034-400C-9725-6AFE2E4F2A9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C563A60-3034-400C-9725-6AFE2E4F2A9A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -80,6 +80,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\HangerKompassBuilder\HangerKompassBuilder.csproj">
+      <Project>{7c563a60-3034-400c-9725-6afe2e4f2a9a}</Project>
+      <Name>HangerKompassBuilder</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Hangers\Hangers.csproj">
       <Project>{e07c4e54-c794-4a2c-b7a9-cad7d46b2d67}</Project>
       <Name>Hangers</Name>

@@ -157,6 +157,7 @@
             this.HeightTextBox.Name = "HeightTextBox";
             this.HeightTextBox.Size = new System.Drawing.Size(71, 20);
             this.HeightTextBox.TabIndex = 9;
+            this.HeightTextBox.Text = "230";
             this.HeightToolTip.SetToolTip(this.HeightTextBox, "Height of Hangers must be between: 200 - 230");
             this.HeightTextBox.TextChanged += new System.EventHandler(this.HeightTextBox_TextChanged);
             // 
@@ -166,6 +167,7 @@
             this.LengthTextBox.Name = "LengthTextBox";
             this.LengthTextBox.Size = new System.Drawing.Size(71, 20);
             this.LengthTextBox.TabIndex = 10;
+            this.LengthTextBox.Text = "390";
             this.LengthToolTip.SetToolTip(this.LengthTextBox, "Length of Hangers must be between: 390 - 470");
             this.LengthTextBox.TextChanged += new System.EventHandler(this.LengthTextBox_TextChanged);
             // 
@@ -175,6 +177,7 @@
             this.WidthTextBox.Name = "WidthTextBox";
             this.WidthTextBox.Size = new System.Drawing.Size(71, 20);
             this.WidthTextBox.TabIndex = 11;
+            this.WidthTextBox.Text = "5";
             this.WidthToolTip.SetToolTip(this.WidthTextBox, "Width of Hangers must be between: 4 - 6");
             this.WidthTextBox.TextChanged += new System.EventHandler(this.WidthTextBox_TextChanged);
             // 
@@ -184,6 +187,7 @@
             this.InnerRadiusTextBox.Name = "InnerRadiusTextBox";
             this.InnerRadiusTextBox.Size = new System.Drawing.Size(71, 20);
             this.InnerRadiusTextBox.TabIndex = 12;
+            this.InnerRadiusTextBox.Text = "15";
             this.InnerRadiusToolTip.SetToolTip(this.InnerRadiusTextBox, "Inner Radius of Hangers must be between: 15 - 25");
             this.InnerRadiusTextBox.TextChanged += new System.EventHandler(this.InnerRadiusTextBox_TextChanged);
             // 
@@ -211,6 +215,7 @@
             this.RecessRadiusTextBox.Name = "RecessRadiusTextBox";
             this.RecessRadiusTextBox.Size = new System.Drawing.Size(71, 20);
             this.RecessRadiusTextBox.TabIndex = 15;
+            this.RecessRadiusTextBox.Text = "3";
             this.RecessRadiusToolTip.SetToolTip(this.RecessRadiusTextBox, "Recess radius  must  be between: 3 - 4");
             this.RecessRadiusTextBox.TextChanged += new System.EventHandler(this.RecessRadiusTextBox_TextChanged);
             // 

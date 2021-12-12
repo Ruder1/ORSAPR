@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Runtime.InteropServices;
-using FlaskWurthzKompasBuilder.Service;
+using HangerKompassBuilder.Service;
 using Kompas6API5;
 using Kompas6Constants3D;
 
-namespace HangerKompasBuilder
+namespace HangerKompassBuilder
 {
     internal class KompassConnector
     {
@@ -17,6 +17,7 @@ namespace HangerKompasBuilder
         /// Объект интерфейса KsPart для взимодействия с компонентом Kompas 3D
         /// </summary>
         public ksPart Part { get; set; }
+
 
         /// <summary>
         /// Конструктор класса, выполняет запуск Kompas 3D

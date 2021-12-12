@@ -7,7 +7,7 @@ using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FlaskWurthzKompasBuilder.Service
+namespace HangerKompassBuilder.Service
 {
     public static class Marshal2
     {
