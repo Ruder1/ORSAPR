@@ -37,9 +37,22 @@ namespace HangersPlugin
 
         private void BuildButton_Click(object sender, EventArgs e)
         {
-            var builder = new HangerBuilder();
-            builder.Assembly(_hangerParametrs);
-        }
+
+            try
+            {
+                _hangerParametrs.Height = IntParse(HeightTextBox);
+                _hangerParametrs.Width = IntParse(WidthTextBox);
+                _hangerParametrs.Length = IntParse(LengthTextBox);
+                _hangerParametrs.InnerRadius = IntParse(InnerRadiusTextBox);
+                _hangerParametrs.RecessRadius = IntParse(RecessRadiusTextBox);
+                var builder = new HangerBuilder();
+                builder.Assembly(_hangerParametrs);
+            }
+            catch(ArgumentException exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+    }
 
         /// <summary>
         /// Переводит string в int
