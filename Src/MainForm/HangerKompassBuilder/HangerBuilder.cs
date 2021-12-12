@@ -24,10 +24,36 @@ namespace HangerKompassBuilder
             BuildHanger(parameters);
         }
 
-        private void BuildHanger(HangerParametrs parametrs)
+        /// <summary>
+        /// Создает вешалку
+        /// </summary>
+        /// <param name="parametrs">Параметры плечиков</param>
+        private void BuildHanger(HangerParametrs parameters)
         {
+            var sketchDef = CreateSketch(Obj3dType.o3d_planeXOZ);
+            var doc2d = (ksDocument2D)sketchDef.BeginEdit();
+            //Внутренняя линия
+            doc2d.ksLineSeg(0, -parameters.InnerHeight - 15, -20, -parameters.InnerHeight - 22, 1);
+            doc2d.ksLineSeg(-20, -parameters.InnerHeight - 22, -20, -parameters.Height + 35, 1);
+            doc2d.ksArcByPoint(0, -parameters.Height + 35, parameters.InnerRadius + 5, -20, -parameters.Height + 35, 20,
+                -parameters.Height + 35, 1, 1);
+            //Внешняя линия
+            doc2d.ksLineSeg(0, -parameters.InnerHeight, -35, -parameters.InnerHeight - 12, 1);
+            doc2d.ksLineSeg(-35, -parameters.InnerHeight - 12, -35, -parameters.Height + 35, 1);
+            doc2d.ksArcByPoint(0, -parameters.Height + 35, parameters.OuterRadius + 5, -35, -parameters.Height + 35, 35,
+                -parameters.Height + 35, 1, 1);
 
+            doc2d.ksArcByPoint(27.5, -parameters.Height + 35, 7.5, 20, -parameters.Height + 35, 35,
+                -parameters.Height + 35, -1, 1);
+            doc2d.ksLineSeg(0, -parameters.InnerHeight - 15, 0, -parameters.InnerHeight, 1);
+            sketchDef.EndEdit();
+            CreateExtrusion(sketchDef, parameters.Width, true);
         }
+        
+        /// <summary>
+        /// Создает плечи из параметров
+        /// </summary>
+        /// <param name="parameters">параметры плечиков</param>
         private void BuildShoulder(HangerParametrs parameters)
         {
             var sketchDef = CreateSketch(Obj3dType.o3d_planeXOZ);
@@ -44,7 +70,7 @@ namespace HangerKompassBuilder
                 parameters.Length / 2 - 30, -parameters.OuterRadius - 15, -1, 1);
             doc2d.ksLineSeg(parameters.Length / 2 - 30, -parameters.InnerRadius - parameters.InnerRadius - 15,
                 0, -parameters.InnerHeight, 1);
-            //Наружная линия
+            //Внешняя линия
             doc2d.ksLineSeg(parameters.Length / 2 - 30, 0, 0, 0, 1);
             doc2d.ksArcByPoint(parameters.Length / 2 - 30, -parameters.OuterRadius, parameters.OuterRadius,
                 parameters.Length / 2 - 30,
@@ -56,9 +82,11 @@ namespace HangerKompassBuilder
                 -parameters.InnerHeight - 15, 1);
             doc2d.ksEndObj();
             doc2d.ksSymmetryObj(groupID, 0, 0, 0, -15, "1");
+            
             sketchDef.EndEdit();
-            //CreateExtrusion(sketchDef,parameters.Width,true);
+            CreateExtrusion(sketchDef,parameters.Width,true);
         }
+
         /// <summary>
         /// Метод для выполнения выдавливания
         /// </summary>
@@ -74,14 +102,12 @@ namespace HangerKompassBuilder
                 NewEntity((short)type);
             var extrusionDef = (ksBossExtrusionDefinition)
                 extrusionEntity.GetDefinition();
+            extrusionDef.SetSideParam(side, (short)End_Type.etBlind, lenght);
 
-            extrusionDef.SetSideParam(side,
-                (short)End_Type.etBlind, lenght);
-            extrusionDef.directionType = side ?
-                (short)Direction_Type.dtNormal :
-                (short)Direction_Type.dtReverse;
-            extrusionDef.SetThinParam(thin,
-                (short)Direction_Type.dtNormal, 0.5, 1);
+            //extrusionDef.directionType = side ? (short)Direction_Type.dtNormal : (short)Direction_Type.dtReverse;
+
+            //extrusionDef.SetThinParam(thin, (short)Direction_Type.dtNormal, 0.5, 1);
+
             extrusionDef.SetSketch(sketchDef);
 
             extrusionEntity.Create();
