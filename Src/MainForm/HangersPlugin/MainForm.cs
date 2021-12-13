@@ -45,7 +45,7 @@ namespace HangersPlugin
                 _hangerParametrs.Length = IntParse(LengthTextBox);
                 _hangerParametrs.InnerRadius = IntParse(InnerRadiusTextBox);
                 _hangerParametrs.RecessRadius = IntParse(RecessRadiusTextBox);
-                OuterRadiusSize(_hangerParametrs.OuterRadius);
+                OuterRadiusSize(_hangerParametrs.InnerRadius);
                 InnerHeightSize(_hangerParametrs.Height);
                 LengthCenterRecessSize(_hangerParametrs.Length);
                 var builder = new HangerBuilder();
