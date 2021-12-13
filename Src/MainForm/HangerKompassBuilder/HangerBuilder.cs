@@ -33,8 +33,11 @@ namespace HangerKompassBuilder
         /// <param name="parametrs">Параметры плечиков</param>
         private void BuildHanger(HangerParametrs parameters)
         {
+            //TODO: RSDN
             var sketchDef = CreateSketch(Obj3dType.o3d_planeXOZ);
             var doc2d = (ksDocument2D)sketchDef.BeginEdit();
+            //TODO: Дубли построения линий
+            //TODO: To const
             //Внутренняя линия
             doc2d.ksLineSeg(0, -parameters.InnerHeight - 15, -20, -parameters.InnerHeight - 22, 1);
             doc2d.ksLineSeg(-20, -parameters.InnerHeight - 22, -20, -parameters.Height + 35, 1);

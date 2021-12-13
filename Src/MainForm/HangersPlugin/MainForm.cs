@@ -106,6 +106,7 @@ namespace HangersPlugin
             LengthCenterRecessTextBox.Text = _hangerParametrs.LengthCenterRecess.ToString();
         }
 
+        //TODO: Убрать дубли обработчиков
         private void HeightTextBox_TextChanged(object sender, EventArgs e)
         {
             try
