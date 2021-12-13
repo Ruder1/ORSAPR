@@ -6,6 +6,9 @@ using Kompas6Constants3D;
 
 namespace HangerKompassBuilder
 {
+    /// <summary>
+    /// Класс для подключения компас 3D
+    /// </summary>
     internal class KompassConnector
     {
         /// <summary>

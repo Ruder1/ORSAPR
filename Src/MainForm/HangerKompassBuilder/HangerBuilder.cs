@@ -5,6 +5,9 @@ using Hangers;
 
 namespace HangerKompassBuilder
 {
+    /// <summary>
+    /// Класс для построения готовой модели плечиков
+    /// </summary>
     public class HangerBuilder
     {
         /// <summary>

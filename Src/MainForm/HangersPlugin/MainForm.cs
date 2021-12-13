@@ -52,7 +52,7 @@ namespace HangersPlugin
             {
                 MessageBox.Show(exception.Message);
             }
-    }
+        }
 
         /// <summary>
         /// Переводит string в int
@@ -69,6 +69,40 @@ namespace HangersPlugin
             throw new ArgumentException("the value must consist of digits");
 
         }
+
+        /// <summary>
+        /// Метод расчета наружного радиуса по зависимости
+        /// </summary>
+        /// <param name="innerRadius">Внутренний радиус</param>
+        private void OuterRadiusSize(int innerRadius)
+        {
+            _hangerParametrs.OuterRadius = innerRadius + 15;
+            OuterRadiusTextBox.BackColor = _correctBackColor;
+            OuterRadiusTextBox.Text = _hangerParametrs.OuterRadius.ToString();
+        }
+
+        /// <summary>
+        /// Метод расчета внутренней высоты плечиков по зависимости
+        /// </summary>
+        /// <param name="height">Высота плечиков</param>
+        private void InnerHeightSize(int height)
+        {
+            _hangerParametrs.InnerHeight = (height - 10) / 2;
+            InnerHeightTextBox.BackColor = _correctBackColor;
+            InnerHeightTextBox.Text = _hangerParametrs.InnerHeight.ToString();
+        }
+
+        /// <summary>
+        /// Метод для расчета расположение выемок от центра
+        /// </summary>
+        /// <param name="length">Длина плечиков</param>
+        private void LengthCenterRecessSize(int length)
+        {
+            _hangerParametrs.LengthCenterRecess = (length * 3) / 4;
+            LengthCenterRecessTextBox.BackColor = _correctBackColor;
+            LengthCenterRecessTextBox.Text = _hangerParametrs.LengthCenterRecess.ToString();
+        }
+
         private void HeightTextBox_TextChanged(object sender, EventArgs e)
         {
             try
@@ -147,38 +181,5 @@ namespace HangersPlugin
             }
     
         }
-        /// <summary>
-        /// Метод расчета наружного радиуса по зависимости
-        /// </summary>
-        /// <param name="innerRadius">Внутренний радиус</param>
-        private void OuterRadiusSize(int innerRadius)
-        {
-            _hangerParametrs.OuterRadius = innerRadius + 15;
-            OuterRadiusTextBox.BackColor = _correctBackColor;
-            OuterRadiusTextBox.Text = _hangerParametrs.OuterRadius.ToString();
-        }
-
-        /// <summary>
-        /// Метод расчета внутренней высоты плечиков по зависимости
-        /// </summary>
-        /// <param name="height">Высота плечиков</param>
-        private void InnerHeightSize(int height)
-        {
-            _hangerParametrs.InnerHeight = (height - 10) / 2;
-            InnerHeightTextBox.BackColor = _correctBackColor;
-            InnerHeightTextBox.Text = _hangerParametrs.InnerHeight.ToString();
-        }
-
-        /// <summary>
-        /// Метод для расчета расположение выемок от центра
-        /// </summary>
-        /// <param name="length">Длина плечиков</param>
-        private void LengthCenterRecessSize(int length)
-        {
-            _hangerParametrs.LengthCenterRecess = (length * 3) / 4;
-            LengthCenterRecessTextBox.BackColor = _correctBackColor;
-            LengthCenterRecessTextBox.Text = _hangerParametrs.LengthCenterRecess.ToString();
-        }
-
     }
 }
