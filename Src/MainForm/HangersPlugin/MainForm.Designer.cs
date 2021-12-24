@@ -198,6 +198,7 @@
             this.OuterRadiusTextBox.Name = "OuterRadiusTextBox";
             this.OuterRadiusTextBox.Size = new System.Drawing.Size(71, 20);
             this.OuterRadiusTextBox.TabIndex = 13;
+            this.OuterRadiusTextBox.Text = "30";
             this.OuterRadiusToolTip.SetToolTip(this.OuterRadiusTextBox, "The outer radius is built according to the dependence: Inner Radius + 15");
             // 
             // InnerHeightTextBox
@@ -207,6 +208,7 @@
             this.InnerHeightTextBox.Name = "InnerHeightTextBox";
             this.InnerHeightTextBox.Size = new System.Drawing.Size(71, 20);
             this.InnerHeightTextBox.TabIndex = 14;
+            this.InnerHeightTextBox.Text = "110";
             this.InnerHeightToolTip.SetToolTip(this.InnerHeightTextBox, "The inner height is built according to the dependence: (Height-1)/2");
             // 
             // RecessRadiusTextBox
@@ -226,6 +228,7 @@
             this.LengthCenterRecessTextBox.Name = "LengthCenterRecessTextBox";
             this.LengthCenterRecessTextBox.Size = new System.Drawing.Size(71, 20);
             this.LengthCenterRecessTextBox.TabIndex = 16;
+            this.LengthCenterRecessTextBox.Text = "292";
             this.LengthCenterRecessToolTip.SetToolTip(this.LengthCenterRecessTextBox, "Length from center to recess is built according to the dependence: Length * 3/4");
             // 
             // BuildButton

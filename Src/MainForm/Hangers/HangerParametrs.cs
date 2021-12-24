@@ -137,7 +137,14 @@
         public int InnerHeight
         {
             get => _innerHeight;
-            set => _innerHeight = value;
+            set
+            {
+                _minValue = 95;
+                _maxValue = 110;
+                var checking = (value - 10) / 2;
+                ValidatorHangerParametrs.CheckParametrsValue(_minValue, _maxValue, checking);
+                _innerHeight = checking;
+            }
         }
 
         /// <summary>
@@ -146,7 +153,14 @@
         public int OuterRadius
         {
             get => _outerRadius;
-            set => _outerRadius = value;
+            set
+            {
+                _minValue = 30;
+                _maxValue = 35;
+                var checking = value + 15;
+                ValidatorHangerParametrs.CheckParametrsValue(_minValue, _maxValue, checking);
+                _outerRadius = checking;
+            } 
         }
 
         /// <summary>
@@ -155,7 +169,14 @@
         public int LengthCenterRecess
         {
             get => _lengthCenterRecess;
-            set => _lengthCenterRecess = value;
+            set
+            {
+                _minValue = 292;
+                _maxValue = 353;
+                var checking = (value * 3) / 4;
+                ValidatorHangerParametrs.CheckParametrsValue(_minValue, _maxValue, checking);
+                _lengthCenterRecess = checking;
+            }
         }
 
     }
