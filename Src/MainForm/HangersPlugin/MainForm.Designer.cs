@@ -265,6 +265,8 @@
             this.Controls.Add(this.LengthLabel);
             this.Controls.Add(this.HeightLabel);
             this.Controls.Add(this.MainTextLabel);
+            this.MaximumSize = new System.Drawing.Size(431, 354);
+            this.MinimumSize = new System.Drawing.Size(431, 354);
             this.Name = "MainForm";
             this.Text = "Hangers For Clothes";
             this.ResumeLayout(false);

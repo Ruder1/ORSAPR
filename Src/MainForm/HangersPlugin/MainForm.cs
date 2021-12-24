@@ -33,14 +33,6 @@ namespace HangersPlugin
         public MainForm()
         {
             InitializeComponent();
-            _hangerParametrs.Height = IntParse(HeightTextBox);
-            _hangerParametrs.Width = IntParse(WidthTextBox);
-            _hangerParametrs.Length = IntParse(LengthTextBox);
-            _hangerParametrs.InnerRadius = IntParse(InnerRadiusTextBox);
-            _hangerParametrs.RecessRadius = IntParse(RecessRadiusTextBox);
-            _hangerParametrs.InnerHeight = IntParse(HeightTextBox);
-            _hangerParametrs.OuterRadius = IntParse(InnerRadiusTextBox);
-            _hangerParametrs.LengthCenterRecess = IntParse(LengthTextBox);
         }
 
         private void BuildButton_Click(object sender, EventArgs e)
@@ -48,7 +40,14 @@ namespace HangersPlugin
 
             try
             {
-
+                _hangerParametrs.Height = IntParse(HeightTextBox);
+                _hangerParametrs.Width = IntParse(WidthTextBox);
+                _hangerParametrs.Length = IntParse(LengthTextBox);
+                _hangerParametrs.InnerRadius = IntParse(InnerRadiusTextBox);
+                _hangerParametrs.RecessRadius = IntParse(RecessRadiusTextBox);
+                _hangerParametrs.InnerHeight = IntParse(HeightTextBox);
+                _hangerParametrs.OuterRadius = IntParse(InnerRadiusTextBox);
+                _hangerParametrs.LengthCenterRecess = IntParse(LengthTextBox);
                 var builder = new HangerBuilder();
                 builder.Assembly(_hangerParametrs);
             }
