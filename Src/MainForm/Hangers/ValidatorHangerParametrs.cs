@@ -9,7 +9,7 @@ namespace Hangers
     /// <summary>
     /// Статический класс для проверки ввода данных
     /// </summary>
-    class ValidatorHangerParametrs
+    public class ValidatorHangerParametrs
     {
         /// <summary>
         /// Статический метод, выполняет проверку введенных данных на въождение в диапазон

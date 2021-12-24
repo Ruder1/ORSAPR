@@ -11,6 +11,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hangers", "Hangers\Hangers.csproj", "{E07C4E54-C794-4A2C-B7A9-CAD7D46B2D67}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HangerUnitTests", "HangerUnitTests\HangerUnitTests.csproj", "{C22B8FD7-38B1-45AF-AD6C-EC98DF214DC2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E07C4E54-C794-4A2C-B7A9-CAD7D46B2D67} = {E07C4E54-C794-4A2C-B7A9-CAD7D46B2D67}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HangerKompassBuilder", "HangerKompassBuilder\HangerKompassBuilder.csproj", "{7C563A60-3034-400C-9725-6AFE2E4F2A9A}"
 	ProjectSection(ProjectDependencies) = postProject
