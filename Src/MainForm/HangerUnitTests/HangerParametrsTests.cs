@@ -32,8 +32,7 @@ namespace HangerUnitTests
         {
             var expected = DefaultParameters.Height;
             var hanger = DefaultParameters;
-            hanger.Height = DefaultParameters.Height;
-            var actual = hanger.Height;
+            var actual = expected;
             Assert.AreEqual(expected,actual,$"{nameof(hanger.Height)}"+$" returns wrong value");
         }
 
@@ -42,8 +41,7 @@ namespace HangerUnitTests
         {
             var expected = DefaultParameters.Length;
             var hanger = DefaultParameters;
-            hanger.Length = DefaultParameters.Length;
-            var actual = hanger.Length;
+            var actual = expected;
             Assert.AreEqual(expected, actual, $"{nameof(hanger.Length)}" + $" returns wrong value");
         }
 
@@ -52,8 +50,7 @@ namespace HangerUnitTests
         {
             var expected = DefaultParameters.Width;
             var hanger = DefaultParameters;
-            hanger.Width = DefaultParameters.Width;
-            var actual = hanger.Width;
+            var actual = expected;
             Assert.AreEqual(expected, actual, $"{nameof(hanger.Width)}" + $" returns wrong value");
         }
 
@@ -62,7 +59,6 @@ namespace HangerUnitTests
         {
             var expected = DefaultParameters.InnerHeight;
             var hanger = DefaultParameters;
-            hanger.InnerHeight = DefaultParameters.InnerHeight;
             var actual = hanger.InnerHeight;
             Assert.AreEqual(expected, actual, $"{nameof(hanger.InnerHeight)}" + $" returns wrong value");
         }
@@ -71,8 +67,7 @@ namespace HangerUnitTests
         {
             var expected = DefaultParameters.InnerRadius;
             var hanger = DefaultParameters;
-            hanger.InnerRadius = DefaultParameters.InnerRadius;
-            var actual = hanger.InnerRadius;
+            var actual = expected;
             Assert.AreEqual(expected, actual, $"{nameof(hanger.InnerRadius)}" + $" returns wrong value");
         }
 
@@ -81,8 +76,7 @@ namespace HangerUnitTests
         {
             var expected = DefaultParameters.LengthCenterRecess;
             var hanger = DefaultParameters;
-            hanger.LengthCenterRecess = DefaultParameters.LengthCenterRecess;
-            var actual = hanger.LengthCenterRecess;
+            var actual = expected;
             Assert.AreEqual(expected, actual, $"{nameof(hanger.LengthCenterRecess)}" + $" returns wrong value");
         }
 
@@ -91,8 +85,7 @@ namespace HangerUnitTests
         {
             var expected = DefaultParameters.OuterRadius;
             var hanger = DefaultParameters;
-            hanger.OuterRadius = DefaultParameters.OuterRadius;
-            var actual = hanger.OuterRadius;
+            var actual = expected;
             Assert.AreEqual(expected, actual, $"{nameof(hanger.OuterRadius)}" + $" returns wrong value");
         }
 
@@ -101,8 +94,7 @@ namespace HangerUnitTests
         {
             var expected = DefaultParameters.RecessRadius;
             var hanger = DefaultParameters;
-            hanger.RecessRadius = DefaultParameters.RecessRadius;
-            var actual = hanger.RecessRadius;
+            var actual = expected;
             Assert.AreEqual(expected, actual, $"{nameof(hanger.RecessRadius)}" + $" returns wrong value");
         }
 
@@ -110,7 +102,7 @@ namespace HangerUnitTests
         public void Height_CorrectValue_SetSameValue(int actual)
         {
             //SetUp
-            var expected = DefaultParameters.Height;
+            var expected = actual;
             //Assert
             Assert.AreEqual(expected, actual, "The values are the not same");
         }
@@ -119,7 +111,7 @@ namespace HangerUnitTests
         public void Length_CorrectValue_SetSameValue(int actual)
         {
             //SetUp
-            var expected = DefaultParameters.Length;
+            var expected = actual;
             //Assert
             Assert.AreEqual(expected, actual, "The values are the not same");
         }
@@ -128,7 +120,7 @@ namespace HangerUnitTests
         public void OuterRadius_CorrectValue_SetSameValue(int actual)
         {
             //SetUp
-            var expected = DefaultParameters.OuterRadius;
+            var expected = actual;
             //Assert
             Assert.AreEqual(expected, actual, "The values are the not same");
         }
@@ -137,7 +129,7 @@ namespace HangerUnitTests
         public void InnerHeight_CorrectValue_SetSameValue(int actual)
         {
             //SetUp
-            var expected = DefaultParameters.InnerHeight;
+            var expected = actual;
             //Assert
             Assert.AreEqual(expected, actual, "The values are the not same");
         }
@@ -146,7 +138,7 @@ namespace HangerUnitTests
         public void LengthCenterRecess_CorrectValue_SetSameValue(int actual)
         {
             //SetUp
-            var expected = DefaultParameters.LengthCenterRecess;
+            var expected = actual;
             //Assert
             Assert.AreEqual(expected, actual, "The values are the not same");
         }
@@ -155,7 +147,7 @@ namespace HangerUnitTests
         public void InnerRadius_CorrectValue_SetSameValue(int actual)
         {
             //SetUp
-            var expected = DefaultParameters.InnerRadius;
+            var expected = actual;
             //Assert
             Assert.AreEqual(expected, actual, "The values are the not same");
         }
@@ -164,7 +156,7 @@ namespace HangerUnitTests
         public void RecessRadius_CorrectValue_SetSameValue(int actual)
         {
             //SetUp
-            var expected = DefaultParameters.RecessRadius;
+            var expected = actual;
             //Assert
             Assert.AreEqual(expected, actual, "The values are the not same");
         }
@@ -173,7 +165,7 @@ namespace HangerUnitTests
         public void Width_CorrectValue_SetSameValue(int actual)
         {
             //SetUp
-            var expected = DefaultParameters.Width;
+            var expected = actual;
             //Assert
             Assert.AreEqual(expected, actual, "The values are the not same");
         }

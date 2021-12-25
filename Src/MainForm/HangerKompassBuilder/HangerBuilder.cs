@@ -25,6 +25,10 @@ namespace HangerKompassBuilder
             _connector.GetNewPart();
             BuildShoulder(parameters);
             BuildHanger(parameters);
+            var sketchDef = CreateSketch(Obj3dType.o3d_planeXOZ);
+            var doc2d = (ksDocument2D)sketchDef.BeginEdit();
+            doc2d.ksText(0, -5, 180, 8, 0, 0, "Надпись Погорелов");
+            sketchDef.EndEdit();
         }
 
         /// <summary>
@@ -47,7 +51,8 @@ namespace HangerKompassBuilder
 
             doc2d.ksArcByPoint(27.5, -parameters.Height + 35, 7.5, 20,
                 -parameters.Height + 35, 35, -parameters.Height + 35, -1, 1);
-            doc2d.ksLineSeg(0, -parameters.InnerHeight - 15, 0, -parameters.InnerHeight, 1);
+            doc2d.ksLineSeg(0, -parameters.InnerHeight - 15, 0,
+                -parameters.InnerHeight, 1);
             sketchDef.EndEdit();
             CreateExtrusion(sketchDef, parameters.Width, true);
         }
@@ -92,7 +97,6 @@ namespace HangerKompassBuilder
                 -parameters.InnerHeight-15);
             doc2d.ksEndObj();
             doc2d.ksSymmetryObj(groupID, 0, 0, 0, -15, "1");
-            
             sketchDef.EndEdit();
             CreateExtrusion(sketchDef,parameters.Width,true);
         }
