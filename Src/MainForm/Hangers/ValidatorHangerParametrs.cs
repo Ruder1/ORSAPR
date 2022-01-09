@@ -22,7 +22,7 @@ namespace Hangers
             if ( value < minValue || maxValue < value)
             {
                 throw new ArgumentException
-                ("The value is not in the range" + minValue + " - " + maxValue);
+                ("The value is not in the range " + minValue + " - " + maxValue);
             }
         }
     }

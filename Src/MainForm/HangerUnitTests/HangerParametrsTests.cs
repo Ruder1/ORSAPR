@@ -12,16 +12,16 @@ namespace HangerUnitTests
     [TestFixture]
     public class HangerParametrsTests
     {
-        private static HangerParametrs DefaultParameters =>
+        private  HangerParametrs DefaultParameters =>
             new HangerParametrs()
             {
-                Height = 230,
-                Length = 390,
+                Height = 210,
+                Length = 400,
                 Width = 5,
-                InnerHeight = 110,
-                InnerRadius = 15,
-                LengthCenterRecess = 130,
-                OuterRadius = 30,
+                InnerHeight = 210,
+                InnerRadius = 17,
+                LengthCenterRecess = 400,
+                OuterRadius = 17,
                 RecessRadius = 3
             };
 
@@ -31,9 +31,8 @@ namespace HangerUnitTests
         public void HeightTest_Get()
         {
             var expected = DefaultParameters.Height;
-            var hanger = DefaultParameters;
             var actual = expected;
-            Assert.AreEqual(expected,actual,$"{nameof(hanger.Height)}"+$" returns wrong value");
+            Assert.AreEqual(expected,actual,$"{nameof(DefaultParameters.Height)}"+$" returns wrong value");
         }
 
         [TestCase(Description = "Positive test getter Length")]
@@ -95,7 +94,8 @@ namespace HangerUnitTests
         public void Height_CorrectValue_SetSameValue()
         {
             //SetUp
-            var actual = DefaultParameters.Height;
+            var hanger = new HangerParametrs() { Height = 230 };
+            var actual = hanger.Height;
             var expected = actual;
             //Assert
             Assert.AreEqual(expected, actual, "The values are the not same");
@@ -105,7 +105,8 @@ namespace HangerUnitTests
         public void Length_CorrectValue_SetSameValue()
         {
             //SetUp
-            var actual = DefaultParameters.Length;
+            var hanger = new HangerParametrs() { Length = 390 };
+            var actual = hanger.Length;
             var expected = actual;
             //Assert
             Assert.AreEqual(expected, actual, "The values are the not same");
@@ -115,7 +116,8 @@ namespace HangerUnitTests
         public void OuterRadius_CorrectValue_SetSameValue()
         {
             //SetUp
-            var actual = DefaultParameters.OuterRadius;
+            var hanger = new HangerParametrs() { InnerRadius = 15 };
+            var actual = hanger.InnerRadius;
             var expected = actual;
             //Assert
             Assert.AreEqual(expected, actual, "The values are the not same");
@@ -125,7 +127,8 @@ namespace HangerUnitTests
         public void InnerHeight_CorrectValue_SetSameValue()
         {
             //SetUp
-            var actual = DefaultParameters.InnerHeight;
+            var hanger = new HangerParametrs() { Height = 230 };
+            var actual = hanger.Height;
             var expected = actual;
             //Assert
             Assert.AreEqual(expected, actual, "The values are the not same");
@@ -135,8 +138,9 @@ namespace HangerUnitTests
         public void LengthCenterRecess_CorrectValue_SetSameValue()
         {
             //SetUp
-            var actual = DefaultParameters.LengthCenterRecess;
-            var expected = DefaultParameters.LengthCenterRecess;
+            var hanger = new HangerParametrs() { Length = 390 };
+            var actual = hanger.Length;
+            var expected = hanger.Length;
             //Assert
             Assert.AreEqual(expected, actual, "The values are the not same");
         }
@@ -145,7 +149,8 @@ namespace HangerUnitTests
         public void InnerRadius_CorrectValue_SetSameValue()
         {
             //SetUp
-            var actual = DefaultParameters.InnerRadius;
+            var hanger = new HangerParametrs() { InnerRadius = 15 };
+            var actual = hanger.InnerRadius;
             var expected = actual;
             //Assert
             Assert.AreEqual(expected, actual, "The values are the not same");
@@ -155,7 +160,8 @@ namespace HangerUnitTests
         public void RecessRadius_CorrectValue_SetSameValue()
         {
             //SetUp
-            var actual = DefaultParameters.RecessRadius;
+            var hanger = new HangerParametrs() { RecessRadius = 3 };
+            var actual = hanger.RecessRadius;
             var expected = actual;
             //Assert
             Assert.AreEqual(expected, actual, "The values are the not same");
@@ -165,8 +171,9 @@ namespace HangerUnitTests
         public void Width_CorrectValue_SetSameValue()
         {
             //SetUp
-            var actual = DefaultParameters.Width;
-            var expected = actual;
+            var hanger = new HangerParametrs() { Width = 5 };
+            var actual = hanger.Width;
+            var expected = hanger.Width;
             //Assert
             Assert.AreEqual(expected, actual, "The values are the not same");
         }
@@ -183,7 +190,7 @@ namespace HangerUnitTests
 
             //Assert
             Assert.Throws<ArgumentException>(
-                () => { DefaultParameters.Length = wrongHeight; }, "$Value out of range");
+                () => { DefaultParameters.Height = wrongHeight; }, "$Value out of range");
         }
         [TestCase(300, TestName = "Length value less than range")]
         [TestCase(500, TestName = "Length value over than range")]
@@ -196,13 +203,13 @@ namespace HangerUnitTests
         }
 
         [TestCase(1, TestName = "Width value less than range")]
-        [TestCase(6, TestName = "Width value over than range")]
+        [TestCase(7, TestName = "Width value over than range")]
         public void WidthTest_SetWrong(int wrongWidth)
         {
 
             //Assert
             Assert.Throws<ArgumentException>(
-                () =>{ DefaultParameters.Length = wrongWidth; }, "$Value out of range");
+                () =>{ DefaultParameters.Width = wrongWidth; }, "$Value out of range");
         }
 
         [TestCase(10, TestName = "Inner Height value less than range")]
@@ -212,7 +219,7 @@ namespace HangerUnitTests
 
             //Assert
             Assert.Throws<ArgumentException>(
-                () => { DefaultParameters.Length = wrongInnerHeight; }, "$Value out of range");
+                () => { DefaultParameters.InnerHeight = wrongInnerHeight; }, "$Value out of range");
         }
 
         [TestCase(10, TestName = "InnerRadius value less than range")]
@@ -222,17 +229,17 @@ namespace HangerUnitTests
 
             //Assert
             Assert.Throws<ArgumentException>(
-                () => { DefaultParameters.Length = wrongInnerRadius; }, "$Value out of range");
+                () => { DefaultParameters.InnerRadius = wrongInnerRadius; }, "$Value out of range");
         }
 
-        [TestCase(20, TestName = "Outer Radius value less than range")]
+        [TestCase(2, TestName = "Outer Radius value less than range")]
         [TestCase(50, TestName = "Outer Radius value over than range")]
         public void OuterRadiusTest_SetWrong(int wrongOuterRadius)
         {
 
             //Assert
             Assert.Throws<ArgumentException>(
-                () => { DefaultParameters.Length = wrongOuterRadius; }, "$Value out of range");
+                () => { DefaultParameters.OuterRadius = wrongOuterRadius; }, "$Value out of range");
         }
 
         [TestCase(1, TestName = "Recess Radius value less than range")]
@@ -242,7 +249,7 @@ namespace HangerUnitTests
 
             //Assert
             Assert.Throws<ArgumentException>(
-                () => { DefaultParameters.Length = wrongRecessRadius; }, "$Value out of range");
+                () => { DefaultParameters.RecessRadius = wrongRecessRadius; }, "$Value out of range");
         }
 
         [TestCase(100, TestName = "Length Center Recess value less than range")]
@@ -252,7 +259,7 @@ namespace HangerUnitTests
 
             //Assert
             Assert.Throws<ArgumentException>(
-                () => { DefaultParameters.Length = wrongLengthCenterRecess; }, "$Value out of range");
+                () => { DefaultParameters.LengthCenterRecess = wrongLengthCenterRecess; }, "$Value out of range");
         }
         #endregion
     }
