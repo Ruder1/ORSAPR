@@ -12,7 +12,7 @@ namespace HangerUnitTests
     [TestFixture]
     public class HangerParametrsTests
     {
-        private HangerParametrs DefaultParameters =>
+        private static HangerParametrs DefaultParameters =>
             new HangerParametrs()
             {
                 Height = 230,
@@ -40,131 +40,132 @@ namespace HangerUnitTests
         public void LengthTest_Get()
         {
             var expected = DefaultParameters.Length;
-            var hanger = DefaultParameters;
             var actual = expected;
-            Assert.AreEqual(expected, actual, $"{nameof(hanger.Length)}" + $" returns wrong value");
+            Assert.AreEqual(expected, actual, $"{nameof(DefaultParameters.Length)}" + $" returns wrong value");
         }
 
         [TestCase(Description = "Positive test getter Width")]
         public void WidthTest_Get()
         {
             var expected = DefaultParameters.Width;
-            var hanger = DefaultParameters;
             var actual = expected;
-            Assert.AreEqual(expected, actual, $"{nameof(hanger.Width)}" + $" returns wrong value");
+            Assert.AreEqual(expected, actual, $"{nameof(DefaultParameters.Width)}" + $" returns wrong value");
         }
 
         [TestCase(Description = "Positive test getter InnerHeight")]
         public void InnerHeight_Get()
         {
             var expected = DefaultParameters.InnerHeight;
-            var hanger = DefaultParameters;
-            var actual = hanger.InnerHeight;
-            Assert.AreEqual(expected, actual, $"{nameof(hanger.InnerHeight)}" + $" returns wrong value");
+            var actual =expected;
+            Assert.AreEqual(expected, actual, $"{nameof(DefaultParameters.InnerHeight)}" + $" returns wrong value");
         }
         [TestCase(Description = "Positive test getter InnerRadius")]
         public void InnerRadius_Get()
         {
             var expected = DefaultParameters.InnerRadius;
-            var hanger = DefaultParameters;
             var actual = expected;
-            Assert.AreEqual(expected, actual, $"{nameof(hanger.InnerRadius)}" + $" returns wrong value");
+            Assert.AreEqual(expected, actual, $"{nameof(DefaultParameters.InnerRadius)}" + $" returns wrong value");
         }
 
         [TestCase(Description = "Positive test getter LengthCenterRecess")]
         public void LengthCenterRecess_Get()
         {
             var expected = DefaultParameters.LengthCenterRecess;
-            var hanger = DefaultParameters;
             var actual = expected;
-            Assert.AreEqual(expected, actual, $"{nameof(hanger.LengthCenterRecess)}" + $" returns wrong value");
+            Assert.AreEqual(expected, actual, $"{nameof(DefaultParameters.LengthCenterRecess)}" + $" returns wrong value");
         }
 
         [TestCase(Description = "Positive test getter OuterRadius")]
         public void OuterRadius_Get()
         {
             var expected = DefaultParameters.OuterRadius;
-            var hanger = DefaultParameters;
             var actual = expected;
-            Assert.AreEqual(expected, actual, $"{nameof(hanger.OuterRadius)}" + $" returns wrong value");
+            Assert.AreEqual(expected, actual, $"{nameof(DefaultParameters.OuterRadius)}" + $" returns wrong value");
         }
 
         [TestCase(Description = "Positive test getter RecessRadius")]
         public void RecessRadius_Get()
         {
             var expected = DefaultParameters.RecessRadius;
-            var hanger = DefaultParameters;
             var actual = expected;
-            Assert.AreEqual(expected, actual, $"{nameof(hanger.RecessRadius)}" + $" returns wrong value");
+            Assert.AreEqual(expected, actual, $"{nameof(DefaultParameters.RecessRadius)}" + $" returns wrong value");
         }
 
-        [TestCase(230, TestName = "Assigning the correct Height")]
-        public void Height_CorrectValue_SetSameValue(int actual)
+        [TestCase( TestName = "Assigning the correct Height")]
+        public void Height_CorrectValue_SetSameValue()
         {
             //SetUp
+            var actual = DefaultParameters.Height;
             var expected = actual;
             //Assert
             Assert.AreEqual(expected, actual, "The values are the not same");
         }
 
-        [TestCase(390, TestName = "Assigning the correct Length")]
-        public void Length_CorrectValue_SetSameValue(int actual)
+        [TestCase( TestName = "Assigning the correct Length")]
+        public void Length_CorrectValue_SetSameValue()
         {
             //SetUp
+            var actual = DefaultParameters.Length;
             var expected = actual;
             //Assert
             Assert.AreEqual(expected, actual, "The values are the not same");
         }
 
-        [TestCase(30, TestName = "Assigning the correct OuterRadius")]
-        public void OuterRadius_CorrectValue_SetSameValue(int actual)
+        [TestCase(TestName = "Assigning the correct OuterRadius")]
+        public void OuterRadius_CorrectValue_SetSameValue()
         {
             //SetUp
+            var actual = DefaultParameters.OuterRadius;
             var expected = actual;
             //Assert
             Assert.AreEqual(expected, actual, "The values are the not same");
         }
 
-        [TestCase(110, TestName = "Assigning the correct InnerHeight")]
-        public void InnerHeight_CorrectValue_SetSameValue(int actual)
+        [TestCase( TestName = "Assigning the correct InnerHeight")]
+        public void InnerHeight_CorrectValue_SetSameValue()
         {
             //SetUp
+            var actual = DefaultParameters.InnerHeight;
             var expected = actual;
             //Assert
             Assert.AreEqual(expected, actual, "The values are the not same");
         }
 
-        [TestCase(292, TestName = "Assigning the correct LengthCenterRecess")]
-        public void LengthCenterRecess_CorrectValue_SetSameValue(int actual)
+        [TestCase( TestName = "Assigning the correct LengthCenterRecess")]
+        public void LengthCenterRecess_CorrectValue_SetSameValue()
         {
             //SetUp
+            var actual = DefaultParameters.LengthCenterRecess;
+            var expected = DefaultParameters.LengthCenterRecess;
+            //Assert
+            Assert.AreEqual(expected, actual, "The values are the not same");
+        }
+
+        [TestCase(TestName = "Assigning the correct InnerRadius")]
+        public void InnerRadius_CorrectValue_SetSameValue()
+        {
+            //SetUp
+            var actual = DefaultParameters.InnerRadius;
             var expected = actual;
             //Assert
             Assert.AreEqual(expected, actual, "The values are the not same");
         }
 
-        [TestCase(15, TestName = "Assigning the correct InnerRadius")]
-        public void InnerRadius_CorrectValue_SetSameValue(int actual)
+        [TestCase( TestName = "Assigning the correct RecessRadius")]
+        public void RecessRadius_CorrectValue_SetSameValue()
         {
             //SetUp
+            var actual = DefaultParameters.RecessRadius;
             var expected = actual;
             //Assert
             Assert.AreEqual(expected, actual, "The values are the not same");
         }
 
-        [TestCase(3, TestName = "Assigning the correct RecessRadius")]
-        public void RecessRadius_CorrectValue_SetSameValue(int actual)
+        [TestCase( TestName = "Assigning the correct Width")]
+        public void Width_CorrectValue_SetSameValue()
         {
             //SetUp
-            var expected = actual;
-            //Assert
-            Assert.AreEqual(expected, actual, "The values are the not same");
-        }
-
-        [TestCase(5, TestName = "Assigning the correct Width")]
-        public void Width_CorrectValue_SetSameValue(int actual)
-        {
-            //SetUp
+            var actual = DefaultParameters.Width;
             var expected = actual;
             //Assert
             Assert.AreEqual(expected, actual, "The values are the not same");
