@@ -9,7 +9,7 @@ using NUnit.Framework;
 namespace HangerUnitTests
 {
     [TestFixture]
-    class ValidatorUnitTests
+    public class ValidatorUnitTests
     {
         [TestCase(10, 15, 20, TestName = "Value less than range")]
         [TestCase(100, 1, 50, TestName = "Value over than range")]

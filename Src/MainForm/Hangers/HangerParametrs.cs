@@ -137,10 +137,7 @@
         public int InnerHeight
         {
             get => _innerHeight;
-            set
-            {
-                _innerHeight = (value - 10) / 2;
-            }
+            set => _innerHeight = (value - 10) / 2;
         }
 
         /// <summary>
@@ -149,11 +146,7 @@
         public int OuterRadius
         {
             get => _outerRadius;
-            set
-            {
-                
-                _outerRadius = value + 15;
-            } 
+            set => _outerRadius = value + 15;
         }
 
         /// <summary>
@@ -162,11 +155,7 @@
         public int LengthCenterRecess
         {
             get => _lengthCenterRecess;
-            set
-            {
-                
-                _lengthCenterRecess =( value * 3) / 4; ;
-            }
+            set => _lengthCenterRecess = value / 3;
         }
 
     }

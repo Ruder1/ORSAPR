@@ -19,16 +19,17 @@ namespace HangerKompassBuilder
         /// Метод для построения модели Плечиков
         /// </summary>
         /// <param name="parameters">Параметры Плечиков</param>
-        public void Assembly(HangerParametrs parameters)
+        /// <param name="selectedItem">Проверка нужно ли строить крепления для брюк</param>
+        public void Assembly(HangerParametrs parameters,string selectedItem)
         {
             _connector = new KompassConnector();
             _connector.GetNewPart();
             BuildShoulder(parameters);
             BuildHanger(parameters);
-            var sketchDef = CreateSketch(Obj3dType.o3d_planeXOZ);
-            var doc2d = (ksDocument2D)sketchDef.BeginEdit();
-            doc2d.ksText(0, -5, 180, 8, 0, 0, "Надпись Погорелов");
-            sketchDef.EndEdit();
+            if (selectedItem == "Yes")
+            {
+                BuildBracingPants(parameters);
+            }
         }
 
         /// <summary>
@@ -41,7 +42,6 @@ namespace HangerKompassBuilder
             var sketchDef = CreateSketch(Obj3dType.o3d_planeXOZ);
             var doc2d = (ksDocument2D) sketchDef.BeginEdit();
             //TODO: Дубли построения линий
-            //TODO: To const
             //Внутренняя линия
             SketchHalfHanger(doc2d, 0, -parameters.InnerHeight - 15, -20,
                 -parameters.InnerHeight - 22, 20, -parameters.Height + 35, 20);
@@ -86,12 +86,12 @@ namespace HangerKompassBuilder
             var doc2d = (ksDocument2D)sketchDef.BeginEdit();
             var groupID = doc2d.ksNewGroup(0);
             //Внутренняя линия
-            ScketchdHalf(doc2d, parameters.Length / 2 - 30, -parameters.OuterRadius,
+            SketchHalf(doc2d, parameters.Length / 2 - 30, -parameters.OuterRadius,
                 parameters.InnerRadius, parameters.Length / 2, -15, parameters.Length / 2 - 15,
                 -parameters.OuterRadius - 15, -parameters.InnerRadius * 2 - 15,
                 -parameters.InnerHeight);
             //Внешняя линия
-            ScketchdHalf(doc2d, parameters.Length / 2 - 30, -parameters.OuterRadius,
+            SketchHalf(doc2d, parameters.Length / 2 - 30, -parameters.OuterRadius,
                 parameters.OuterRadius, parameters.Length / 2, 0, parameters.Length / 2 ,
                 -parameters.OuterRadius - 30, -parameters.OuterRadius * 2,
                 -parameters.InnerHeight-15);
@@ -114,13 +114,53 @@ namespace HangerKompassBuilder
         /// <param name="y2">Вторая точка по y</param>
         /// <param name="y3">Третья точка по y</param>
         /// <param name="height">Высота плечей</param>
-        private void ScketchdHalf(ksDocument2D doc2d,int xc, int yc,int radius,int x1,
-            int y1, int x2,int y2,int y3,int height)
+        private void SketchHalf(ksDocument2D doc2d, int xc, int yc, int radius, int x1,
+            int y1, int x2, int y2, int y3, int height)
         {
             doc2d.ksLineSeg(xc, y1, 0, y1, 1);
             doc2d.ksArcByPoint(xc, yc, radius, xc, y1, x1, yc, -1, 1);
             doc2d.ksArcByPoint(xc, yc, radius, x2, yc, xc, y2, -1, 1);
             doc2d.ksLineSeg(xc, y3, 0, height, 1);
+        }
+
+        /// <summary>
+        /// Строит крепления для брюк
+        /// </summary>
+        /// <param name="parameters">Параметры плечиков</param>
+        private void BuildBracingPants(HangerParametrs parameters)
+        {
+            var sketchDef = CreateSketch(Obj3dType.o3d_planeXOZ);
+            var doc2d = (ksDocument2D)sketchDef.BeginEdit();
+            var groupId = doc2d.ksNewGroup(0);
+            var lengthBegin = parameters.Length / 4;
+            var posY1 = 5;
+            var posY2 = 10;
+
+            doc2d.ksLineSeg(lengthBegin, 0, lengthBegin + 5, 0, 1);
+            doc2d.ksLineSeg(lengthBegin + 10, posY1,
+                parameters.LengthCenterRecess - 5, posY1, 1);
+            doc2d.ksLineSeg(lengthBegin + 10, posY2,
+                parameters.LengthCenterRecess - 5, posY2, 1);
+
+            doc2d.ksArcByPoint(lengthBegin + 10, 0, 10,
+                lengthBegin, 0, lengthBegin + 10,
+                posY2, -1, 1);
+            doc2d.ksArcByPoint(lengthBegin + 10, 0, 5,
+                lengthBegin, 0, lengthBegin + 10,
+                posY1, -1, 1);
+
+            doc2d.ksArcByPoint(parameters.LengthCenterRecess - 5, posY1, 5,
+                parameters.LengthCenterRecess - 5, posY2, parameters.LengthCenterRecess,
+                posY1, -1, 1);
+            doc2d.ksArcByPoint(parameters.LengthCenterRecess - 2.5, posY1, 2.5,
+                parameters.LengthCenterRecess, posY1, parameters.LengthCenterRecess - 5,
+                posY1, -1, 1);
+
+            doc2d.ksEndObj();
+            doc2d.ksSymmetryObj(groupId, 0, 0, 0, -15, "1");
+            sketchDef.EndEdit();
+            CreateExtrusion(sketchDef, parameters.Width, true);
+
         }
 
         /// <summary>

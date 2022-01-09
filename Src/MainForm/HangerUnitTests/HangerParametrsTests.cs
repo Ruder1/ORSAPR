@@ -20,7 +20,7 @@ namespace HangerUnitTests
                 Width = 5,
                 InnerHeight = 110,
                 InnerRadius = 15,
-                LengthCenterRecess = 292,
+                LengthCenterRecess = 130,
                 OuterRadius = 30,
                 RecessRadius = 3
             };
