@@ -20,13 +20,13 @@ namespace HangerKompassBuilder
         /// </summary>
         /// <param name="parameters">Параметры Плечиков</param>
         /// <param name="selectedItem">Проверка нужно ли строить крепления для брюк</param>
-        public void Assembly(HangerParametrs parameters,string selectedItem)
+        public void Assembly(HangerParametrs parameters,bool selectedItem)
         {
             _connector = new KompassConnector();
             _connector.GetNewPart();
             BuildShoulder(parameters);
             BuildHanger(parameters);
-            if (selectedItem == "Yes")
+            if (selectedItem == true)
             {
                 BuildBracingPants(parameters);
             }

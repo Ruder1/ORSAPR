@@ -47,11 +47,10 @@ namespace HangersPlugin
                 _hangerParametrs.InnerHeight = IntParse(HeightTextBox);
                 _hangerParametrs.OuterRadius = IntParse(InnerRadiusTextBox);
                 _hangerParametrs.LengthCenterRecess = IntParse(LengthTextBox);
-                var selectedItem = BracingPantsComboBox.SelectedItem.ToString();
                 var builder = new HangerBuilder();
-                builder.Assembly(_hangerParametrs, selectedItem);
+                builder.Assembly(_hangerParametrs, BuildBracingCheckBox.Checked);
             }
-            catch(ArgumentException exception)
+            catch(Exception)
             {
                 MessageBox.Show("Some values aren't in range","Warning",
                     MessageBoxButtons.OKCancel,MessageBoxIcon.Error);
@@ -153,6 +152,26 @@ namespace HangersPlugin
             catch
             {
                 RecessRadiusTextBox.BackColor = _incorrectBackColor;
+            }
+        }
+
+        private void TestButton_Click(object sender, EventArgs e)
+        {
+            var hanger = new HangerParametrs()
+            {
+                Height = 200,
+                Length = 390,
+                Width = 5,
+                InnerHeight = 200,
+                InnerRadius = 15,
+                LengthCenterRecess = 390,
+                OuterRadius = 15,
+                RecessRadius = 3
+            };
+            for (var i = 0; i < 100; i++)
+            {
+                var builder = new HangerBuilder();
+                builder.Assembly(hanger, true);
             }
         }
     }
