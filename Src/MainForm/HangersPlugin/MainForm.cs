@@ -154,25 +154,5 @@ namespace HangersPlugin
                 RecessRadiusTextBox.BackColor = _incorrectBackColor;
             }
         }
-
-        private void TestButton_Click(object sender, EventArgs e)
-        {
-            var hanger = new HangerParametrs()
-            {
-                Height = 200,
-                Length = 390,
-                Width = 5,
-                InnerHeight = 200,
-                InnerRadius = 15,
-                LengthCenterRecess = 390,
-                OuterRadius = 15,
-                RecessRadius = 3
-            };
-            for (var i = 0; i < 100; i++)
-            {
-                var builder = new HangerBuilder();
-                builder.Assembly(hanger, true);
-            }
-        }
     }
 }

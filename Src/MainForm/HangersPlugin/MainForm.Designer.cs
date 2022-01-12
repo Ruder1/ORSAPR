@@ -57,7 +57,6 @@
             this.LengthCenterRecessToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.BuildBracingPantsLabel = new System.Windows.Forms.Label();
             this.BuildBracingCheckBox = new System.Windows.Forms.CheckBox();
-            this.TestButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // MainTextLabel
@@ -285,22 +284,11 @@
             this.BuildBracingCheckBox.Text = "Yes / No";
             this.BuildBracingCheckBox.UseVisualStyleBackColor = true;
             // 
-            // TestButton
-            // 
-            this.TestButton.Location = new System.Drawing.Point(21, 370);
-            this.TestButton.Name = "TestButton";
-            this.TestButton.Size = new System.Drawing.Size(75, 23);
-            this.TestButton.TabIndex = 21;
-            this.TestButton.Text = "Test";
-            this.TestButton.UseVisualStyleBackColor = true;
-            this.TestButton.Click += new System.EventHandler(this.TestButton_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(551, 415);
-            this.Controls.Add(this.TestButton);
             this.Controls.Add(this.BuildBracingCheckBox);
             this.Controls.Add(this.BuildBracingPantsLabel);
             this.Controls.Add(this.BuildButton);
@@ -361,7 +349,6 @@
         private System.Windows.Forms.ToolTip LengthCenterRecessToolTip;
         private System.Windows.Forms.Label BuildBracingPantsLabel;
         private System.Windows.Forms.CheckBox BuildBracingCheckBox;
-        private System.Windows.Forms.Button TestButton;
     }
 }
 

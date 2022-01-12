@@ -38,10 +38,8 @@ namespace HangerKompassBuilder
         /// <param name="parametrs">Параметры плечиков</param>
         private void BuildHanger(HangerParametrs parameters)
         {
-            //TODO: RSDN
             var sketchDef = CreateSketch(Obj3dType.o3d_planeXOZ);
             var doc2d = (ksDocument2D) sketchDef.BeginEdit();
-            //TODO: Дубли построения линий
             //Внутренняя линия
             SketchHalfHanger(doc2d, 0, -parameters.InnerHeight - 15, -20,
                 -parameters.InnerHeight - 22, 20, -parameters.Height + 35, 20);
@@ -174,7 +172,7 @@ namespace HangerKompassBuilder
             double lenght, bool side = true, bool thin = true)
         {
             ksObj3dTypeEnum type = ksObj3dTypeEnum.o3d_bossExtrusion;
-            var extrusionEntity = (ksEntity)_connector.Part.
+            var extrusionEntity = (ksEntity)_connector._part.
                 NewEntity((short)type);
             var extrusionDef = (ksBossExtrusionDefinition)
                 extrusionEntity.GetDefinition();
@@ -192,9 +190,9 @@ namespace HangerKompassBuilder
         /// <returns></returns>
         private ksSketchDefinition CreateSketch(Obj3dType planeType)
         {
-            var plane = (ksEntity)_connector.Part.
+            var plane = (ksEntity)_connector._part.
                 GetDefaultEntity((short)planeType);
-            var sketch = (ksEntity)_connector.Part.
+            var sketch = (ksEntity)_connector._part.
                 NewEntity((short)Obj3dType.o3d_sketch);
             ksSketchDefinition ksSketch = (ksSketchDefinition)sketch.
                 GetDefinition();

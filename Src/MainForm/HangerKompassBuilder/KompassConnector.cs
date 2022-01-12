@@ -12,15 +12,14 @@ namespace HangerKompassBuilder
     internal class KompassConnector
     {
         /// <summary>
-        /// Объект интерфейса KompasObject для взимодействия с Kompas 3D
+        /// Объект интерфейса _kompasObject для взимодействия с Kompas 3D
         /// </summary>
-        public KompasObject KompasObject { get; }
+        public KompasObject _kompasObject { get; }
 
         /// <summary>
         /// Объект интерфейса KsPart для взимодействия с компонентом Kompas 3D
         /// </summary>
-        public ksPart Part { get; set; }
-
+        public ksPart _part { get; set; }
 
         /// <summary>
         /// Конструктор класса, выполняет запуск Kompas 3D
@@ -30,16 +29,16 @@ namespace HangerKompassBuilder
             var progId = "KOMPAS.Application.5";
             try
             {
-                KompasObject = (KompasObject)Marshal2.GetActiveObject(progId);
+                _kompasObject = (KompasObject)Marshal2.GetActiveObject(progId);
             }
             catch (COMException)
             {
-                KompasObject = (KompasObject)Activator.
+                _kompasObject = (KompasObject)Activator.
                     CreateInstance(Type.GetTypeFromProgID(progId));
             }
 
-            KompasObject.Visible = true;
-            KompasObject.ActivateControllerAPI();
+            _kompasObject.Visible = true;
+            _kompasObject.ActivateControllerAPI();
         }
 
         /// <summary>
@@ -47,9 +46,9 @@ namespace HangerKompassBuilder
         /// </summary>
         public void GetNewPart()
         {
-            var ksDoc = (ksDocument3D)KompasObject.Document3D();
+            var ksDoc = (ksDocument3D)_kompasObject.Document3D();
             ksDoc.Create(false, true);
-            Part = (ksPart)ksDoc.GetPart((short)Part_Type.pTop_Part);
+            _part = (ksPart)ksDoc.GetPart((short)Part_Type.pTop_Part);
         }
     }
 }
