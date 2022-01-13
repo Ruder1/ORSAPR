@@ -1,4 +1,7 @@
-﻿namespace Hangers
+﻿using System;
+using System.Collections.Generic;
+
+namespace Hangers
 {
     /// <summary>
     /// Класс создания данных Hangers
@@ -46,6 +49,12 @@
         private int _lengthCenterRecess;
 
         /// <summary>
+        /// Словарь для хранения ошибок ввода
+        /// </summary>
+        public Dictionary<HangerParametersType, string> ErrorsDictionary { get; }
+            = new Dictionary<HangerParametersType, string>();
+
+        /// <summary>
         /// Поле минимальной величины
         /// </summary>
         private int _minValue;
@@ -65,8 +74,8 @@
             {
                 _minValue = 200;
                 _maxValue = 230;
-                ValidatorHangerParametrs.CheckParametrsValue(_minValue,_maxValue,value);
-                _height = value;
+                SetValue(ref _height, value,
+                    _minValue, _maxValue, HangerParametersType.Height);
             }
 
         }
@@ -81,8 +90,8 @@
             {
                 _minValue = 390;
                 _maxValue = 470;
-                ValidatorHangerParametrs.CheckParametrsValue(_minValue, _maxValue, value);
-                _length = value;
+                SetValue(ref _length, value,
+                    _minValue, _maxValue, HangerParametersType.Length);
             }
         }
 
@@ -96,8 +105,8 @@
             {
                 _minValue = 4;
                 _maxValue = 6;
-                ValidatorHangerParametrs.CheckParametrsValue(_minValue, _maxValue, value);
-                _width = value;
+                SetValue(ref _width, value,
+                    _minValue, _maxValue, HangerParametersType.Width);
             }
         }
 
@@ -111,8 +120,8 @@
             {
                 _minValue = 15;
                 _maxValue = 20;
-                ValidatorHangerParametrs.CheckParametrsValue(_minValue, _maxValue, value);
-                _innerRadius = value;
+                SetValue(ref _innerRadius, value,
+                    _minValue, _maxValue, HangerParametersType.InnerRadius);
             }
         }
 
@@ -126,8 +135,8 @@
             {
                 _minValue = 3;
                 _maxValue = 4;
-                ValidatorHangerParametrs.CheckParametrsValue(_minValue, _maxValue, value);
-                _recessRadius = value;
+                SetValue(ref _recessRadius, value,
+                    _minValue, _maxValue, HangerParametersType.RecessRadius);
             }
         }
 
@@ -141,8 +150,8 @@
             {
                 _minValue = 95;
                 _maxValue = 110;
-                ValidatorHangerParametrs.CheckParametrsValue(_minValue, _maxValue, (value - 10) / 2);
-                _innerHeight = (value - 10) / 2;
+                SetValue(ref _innerHeight, (value-10)/2,
+                    _minValue, _maxValue, HangerParametersType.InnerHeight);
             } 
         }
 
@@ -157,8 +166,8 @@
                 
                 _minValue = 30;
                 _maxValue = 35;
-                ValidatorHangerParametrs.CheckParametrsValue(_minValue, _maxValue, value + 15);
-                _outerRadius = value + 15;
+                SetValue(ref _outerRadius, value+15,
+                    _minValue, _maxValue, HangerParametersType.OuterRadius);
             }
         }
 
@@ -172,10 +181,26 @@
             {
                 _minValue = 130;
                 _maxValue = 157;
-                ValidatorHangerParametrs.CheckParametrsValue(_minValue,_maxValue,value/3);
-                _lengthCenterRecess = value / 3;
+                SetValue(ref _lengthCenterRecess,value/3,
+                    _minValue,_maxValue,HangerParametersType.LengthCenterRecess);
             }
         }
 
+        public void SetValue(ref int property, int value,
+            int minValue, int maxValue, HangerParametersType parameter)
+        {
+            try
+            {
+
+                ValidatorHangerParametrs.CheckParametrsValue(minValue, maxValue,
+                    value, parameter);
+                property = value;
+            }
+            catch (Exception ex)
+            {
+                ErrorsDictionary.Add(parameter,
+                    ex.Message);
+            }
+        }
     }
 }

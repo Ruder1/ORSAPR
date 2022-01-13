@@ -30,31 +30,22 @@ namespace HangersPlugin
         /// </summary>
         private HangerParametrs _hangerParametrs = new HangerParametrs();
 
+        private Dictionary<TextBox, HangerParametersType> _textBoxesDictionary;
+
         public MainForm()
         {
             InitializeComponent();
-        }
-
-        private void BuildButton_Click(object sender, EventArgs e)
-        {
-            try
+            _textBoxesDictionary = new Dictionary<TextBox, HangerParametersType>
             {
-                _hangerParametrs.Height = IntParse(HeightTextBox);
-                _hangerParametrs.Width = IntParse(WidthTextBox);
-                _hangerParametrs.Length = IntParse(LengthTextBox);
-                _hangerParametrs.InnerRadius = IntParse(InnerRadiusTextBox);
-                _hangerParametrs.RecessRadius = IntParse(RecessRadiusTextBox);
-                _hangerParametrs.InnerHeight = IntParse(HeightTextBox);
-                _hangerParametrs.OuterRadius = IntParse(InnerRadiusTextBox);
-                _hangerParametrs.LengthCenterRecess = IntParse(LengthTextBox);
-                var builder = new HangerBuilder();
-                builder.Assembly(_hangerParametrs, BuildBracingCheckBox.Checked);
-            }
-            catch(Exception)
-            {
-                MessageBox.Show("Some values aren't in range","Warning",
-                    MessageBoxButtons.OKCancel,MessageBoxIcon.Error);
-            }
+                {HeightTextBox, HangerParametersType.Height},
+                {LengthTextBox,HangerParametersType.Length},
+                {WidthTextBox,HangerParametersType.Width},
+                {InnerHeightTextBox,HangerParametersType.InnerHeight},
+                {InnerRadiusTextBox,HangerParametersType.InnerRadius},
+                {OuterRadiusTextBox,HangerParametersType.OuterRadius},
+                {RecessRadiusTextBox,HangerParametersType.RecessRadius},
+                {LengthCenterRecessTextBox,HangerParametersType.LengthCenterRecess}
+            };
         }
 
         /// <summary>
@@ -64,94 +55,75 @@ namespace HangersPlugin
         /// <returns>Возвращает  тип данных int преобразованный из string</returns>
         private int IntParse(TextBox textBox)
         {
-            if (int.TryParse(textBox.Text, out int result))
-            {
-                return result;
-            }
-
-            throw new ArgumentException("the value must consist of digits");
-        }
-
-        private void HeightTextBox_TextChanged(object sender, EventArgs e)
-        {
             try
             {
-                var result = IntParse(HeightTextBox);
-                _hangerParametrs.Height = result;
-                HeightTextBox.BackColor = _correctBackColor;
-                _hangerParametrs.InnerHeight=result;
-                InnerHeightTextBox.BackColor = _correctBackColor;
-                InnerHeightTextBox.Text = _hangerParametrs.InnerHeight.ToString();
+                int temp = Int32.Parse(textBox.Text);
+                textBox.BackColor = _correctBackColor;
+                return temp;
             }
             catch
             {
-                HeightTextBox.BackColor = _incorrectBackColor;
-                InnerHeightTextBox.BackColor = _incorrectBackColor;
+                textBox.BackColor = _incorrectBackColor;
+                throw new ArgumentException("Value must consist only digits");
             }
         }
 
-        private void LengthTextBox_TextChanged(object sender, EventArgs e)
+        private void BuildButton_Click(object sender, EventArgs e)
         {
             try
             {
-                var result = IntParse(LengthTextBox);
-                _hangerParametrs.Length = result;
-                LengthTextBox.BackColor = _correctBackColor;
-                _hangerParametrs.LengthCenterRecess=result;
-                LengthCenterRecessTextBox.BackColor = _correctBackColor;
-                LengthCenterRecessTextBox.Text = _hangerParametrs.LengthCenterRecess.ToString();
-            }
-            catch
-            {
-                LengthTextBox.BackColor = _incorrectBackColor;
-                LengthCenterRecessTextBox.BackColor = _incorrectBackColor;
-            }
-        }
 
-        private void WidthTextBox_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                var result = IntParse(WidthTextBox);
-                _hangerParametrs.Width = result;
-                WidthTextBox.BackColor = _correctBackColor;
-            }
-            catch
-            {
-                WidthTextBox.BackColor = _incorrectBackColor;
-            }
-
-        }
-
-        private void InnerRadiusTextBox_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                var result = IntParse(InnerRadiusTextBox);
-                _hangerParametrs.InnerRadius = result;
-                InnerRadiusTextBox.BackColor = _correctBackColor;
-                _hangerParametrs.OuterRadius=result;
-                OuterRadiusTextBox.BackColor = _correctBackColor;
+                _hangerParametrs.ErrorsDictionary.Clear();
+                _hangerParametrs.Height = IntParse(HeightTextBox);
+                _hangerParametrs.Width = IntParse(WidthTextBox);
+                _hangerParametrs.Length = IntParse(LengthTextBox);
+                _hangerParametrs.InnerRadius = IntParse(InnerRadiusTextBox);
+                _hangerParametrs.RecessRadius = IntParse(RecessRadiusTextBox);
+                _hangerParametrs.InnerHeight = IntParse(HeightTextBox);
+                 InnerHeightTextBox.Text = _hangerParametrs.InnerHeight.ToString();
+                _hangerParametrs.OuterRadius = IntParse(InnerRadiusTextBox);
                 OuterRadiusTextBox.Text = _hangerParametrs.OuterRadius.ToString();
-            }
-            catch
-            {
-                InnerRadiusTextBox.BackColor = _incorrectBackColor;
-                OuterRadiusTextBox.BackColor = _incorrectBackColor;
-            }
-        }
+                _hangerParametrs.LengthCenterRecess = IntParse(LengthTextBox);
+                LengthCenterRecessTextBox.Text = _hangerParametrs.LengthCenterRecess.ToString();
 
-        private void RecessRadiusTextBox_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                var result = IntParse(RecessRadiusTextBox);
-                _hangerParametrs.RecessRadius = result;
-                RecessRadiusTextBox.BackColor = _correctBackColor;
+
+                if (_hangerParametrs.ErrorsDictionary.Count != 0)
+                {
+                    string message = null;
+                    foreach (var param in
+                        _hangerParametrs.ErrorsDictionary.Keys)
+                    {
+                        message +=
+                            _hangerParametrs.ErrorsDictionary[param]
+                            + "\n";
+                        string textboxname = param.ToString();
+                        TextBox textBox =
+                            Controls.Find(textboxname + "TextBox", false)[0]
+                                as TextBox;
+                        textBox.BackColor = _incorrectBackColor;
+                    }
+                    InfoLabel.Visible = true;
+                    MessageBox.Show(
+                        message,
+                        "Warning",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+                else
+                {
+                    InfoLabel.Visible = false;
+                    foreach (var textBox in _textBoxesDictionary)
+                    {
+                        textBox.Key.BackColor = _correctBackColor;
+                    }
+                }
+                var builder = new HangerBuilder();
+                builder.Assembly(_hangerParametrs, BuildBracingCheckBox.Checked);
             }
-            catch
+            catch (ArgumentException ex)
             {
-                RecessRadiusTextBox.BackColor = _incorrectBackColor;
+                InfoLabel.Visible = true;
+                MessageBox.Show(ex.Message);
             }
         }
     }

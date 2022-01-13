@@ -57,6 +57,7 @@
             this.LengthCenterRecessToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.BuildBracingPantsLabel = new System.Windows.Forms.Label();
             this.BuildBracingCheckBox = new System.Windows.Forms.CheckBox();
+            this.InfoLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // MainTextLabel
@@ -171,7 +172,6 @@
             this.HeightTextBox.TabIndex = 9;
             this.HeightTextBox.Text = "230";
             this.HeightToolTip.SetToolTip(this.HeightTextBox, "Height of Hangers must be between: 200 - 230");
-            this.HeightTextBox.TextChanged += new System.EventHandler(this.HeightTextBox_TextChanged);
             // 
             // LengthTextBox
             // 
@@ -182,7 +182,6 @@
             this.LengthTextBox.TabIndex = 10;
             this.LengthTextBox.Text = "390";
             this.LengthToolTip.SetToolTip(this.LengthTextBox, "Length of Hangers must be between: 390 - 470");
-            this.LengthTextBox.TextChanged += new System.EventHandler(this.LengthTextBox_TextChanged);
             // 
             // WidthTextBox
             // 
@@ -193,7 +192,6 @@
             this.WidthTextBox.TabIndex = 11;
             this.WidthTextBox.Text = "5";
             this.WidthToolTip.SetToolTip(this.WidthTextBox, "Width of Hangers must be between: 4 - 6");
-            this.WidthTextBox.TextChanged += new System.EventHandler(this.WidthTextBox_TextChanged);
             // 
             // InnerRadiusTextBox
             // 
@@ -204,7 +202,6 @@
             this.InnerRadiusTextBox.TabIndex = 12;
             this.InnerRadiusTextBox.Text = "15";
             this.InnerRadiusToolTip.SetToolTip(this.InnerRadiusTextBox, "Inner Radius of Hangers must be between: 15 - 20");
-            this.InnerRadiusTextBox.TextChanged += new System.EventHandler(this.InnerRadiusTextBox_TextChanged);
             // 
             // OuterRadiusTextBox
             // 
@@ -237,7 +234,6 @@
             this.RecessRadiusTextBox.TabIndex = 15;
             this.RecessRadiusTextBox.Text = "3";
             this.RecessRadiusToolTip.SetToolTip(this.RecessRadiusTextBox, "Recess radius  must  be between: 3 - 4");
-            this.RecessRadiusTextBox.TextChanged += new System.EventHandler(this.RecessRadiusTextBox_TextChanged);
             // 
             // LengthCenterRecessTextBox
             // 
@@ -284,11 +280,23 @@
             this.BuildBracingCheckBox.Text = "Yes / No";
             this.BuildBracingCheckBox.UseVisualStyleBackColor = true;
             // 
+            // InfoLabel
+            // 
+            this.InfoLabel.AutoSize = true;
+            this.InfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.InfoLabel.Location = new System.Drawing.Point(16, 374);
+            this.InfoLabel.Name = "InfoLabel";
+            this.InfoLabel.Size = new System.Drawing.Size(369, 25);
+            this.InfoLabel.TabIndex = 21;
+            this.InfoLabel.Text = "You must enter correct values to continue";
+            this.InfoLabel.Visible = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(551, 415);
+            this.Controls.Add(this.InfoLabel);
             this.Controls.Add(this.BuildBracingCheckBox);
             this.Controls.Add(this.BuildBracingPantsLabel);
             this.Controls.Add(this.BuildButton);
@@ -349,6 +357,7 @@
         private System.Windows.Forms.ToolTip LengthCenterRecessToolTip;
         private System.Windows.Forms.Label BuildBracingPantsLabel;
         private System.Windows.Forms.CheckBox BuildBracingCheckBox;
+        private System.Windows.Forms.Label InfoLabel;
     }
 }
 
