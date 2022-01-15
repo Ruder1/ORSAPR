@@ -11,23 +11,26 @@ namespace HangerUnitTests
     [TestFixture]
     public class ValidatorUnitTests
     {
-        [TestCase(10, 15, 20, TestName = "Value less than range")]
-        [TestCase(100, 1, 50, TestName = "Value over than range")]
+        [TestCase(10, 15, 20, HangerParametersType.Height,
+            TestName = "Value less than range")]
+        [TestCase(100, 1, 50, HangerParametersType.Height,
+            TestName = "Value over than range")]
         public void TestValidator_InvalidValue(int invalidValue,
-            int minValue, int maxValue)
+            int minValue, int maxValue, HangerParametersType type)
         {
 
-            Assert.Throws<ArgumentException>(() => ValidatorHangerParametrs.CheckParametrsValue(minValue,
-                maxValue, invalidValue), $"value out of range");
+            Assert.Throws<ArgumentException>(() => ValidatorHangerParametrs.CheckParametrsValue(
+                minValue, maxValue, invalidValue,  type), $"value out of range");
         }
 
-        [TestCase(10, 1, 20, TestName = "Value in the range")]
+        [TestCase(10, 1, 20, HangerParametersType.Height,
+            TestName = "Value in the range")]
         public void TestValidator_ValidValue(int validValue,
-            int minValue, int maxValue)
+            int minValue, int maxValue, HangerParametersType type)
         {
 
             Assert.DoesNotThrow(() => ValidatorHangerParametrs.CheckParametrsValue(minValue,
-                maxValue, validValue), $"value out of range");
+                maxValue, validValue, type), $"value out of range");
             
         }
     }

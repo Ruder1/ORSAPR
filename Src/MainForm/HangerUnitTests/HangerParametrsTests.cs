@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -90,88 +91,100 @@ namespace HangerUnitTests
             Assert.AreEqual(expected, actual, $"{nameof(DefaultParameters.RecessRadius)}" + $" returns wrong value");
         }
 
-        [TestCase( TestName = "Assigning the correct Height")]
-        public void Height_CorrectValue_SetSameValue()
+        [TestCase(TestName =
+            "Позитивный - Отправить значения по умолчанию")]
+        public void TestGetErrors_NoErrorsValue()
+        {
+
+            var hangerParameters = DefaultParameters;
+            var actual =
+                hangerParameters.ErrorsDictionary;
+
+            Assert.IsEmpty(actual, "Словарь не пуст");
+        }
+
+        [TestCase(230, TestName = "Assigning the correct Height")]
+        public void Height_CorrectValue_SetSameValue(int value)
         {
             //SetUp
-            var hanger = new HangerParametrs() { Height = 230 };
+            var hanger = new HangerParametrs() { Height = value };
             var actual = hanger.Height;
             var expected = actual;
             //Assert
             Assert.AreEqual(expected, actual, "The values are the not same");
         }
 
-        [TestCase( TestName = "Assigning the correct Length")]
-        public void Length_CorrectValue_SetSameValue()
+        [TestCase(390, TestName = "Assigning the correct Length")]
+        public void Length_CorrectValue_SetSameValue(int value)
         {
             //SetUp
-            var hanger = new HangerParametrs() { Length = 390 };
+            var hanger = new HangerParametrs() { Length = value };
             var actual = hanger.Length;
             var expected = actual;
             //Assert
             Assert.AreEqual(expected, actual, "The values are the not same");
         }
 
-        [TestCase(TestName = "Assigning the correct OuterRadius")]
-        public void OuterRadius_CorrectValue_SetSameValue()
+        [TestCase(15,TestName = "Assigning the correct OuterRadius")]
+        public void OuterRadius_CorrectValue_SetSameValue(int value)
         {
             //SetUp
-            var hanger = new HangerParametrs() { InnerRadius = 15 };
+            var hanger = new HangerParametrs() { InnerRadius = value };
             var actual = hanger.InnerRadius;
             var expected = actual;
             //Assert
             Assert.AreEqual(expected, actual, "The values are the not same");
         }
 
-        [TestCase( TestName = "Assigning the correct InnerHeight")]
-        public void InnerHeight_CorrectValue_SetSameValue()
+        [TestCase(230, TestName = "Assigning the correct InnerHeight")]
+        public void InnerHeight_CorrectValue_SetSameValue(int value)
         {
             //SetUp
-            var hanger = new HangerParametrs() { Height = 230 };
+            var hanger = new HangerParametrs() { Height = value };
             var actual = hanger.Height;
             var expected = actual;
             //Assert
             Assert.AreEqual(expected, actual, "The values are the not same");
         }
 
-        [TestCase( TestName = "Assigning the correct LengthCenterRecess")]
-        public void LengthCenterRecess_CorrectValue_SetSameValue()
+        [TestCase(390, TestName = "Assigning the correct LengthCenterRecess")]
+        public void LengthCenterRecess_CorrectValue_SetSameValue(int value)
         {
             //SetUp
-            var hanger = new HangerParametrs() { Length = 390 };
+            var hanger = new HangerParametrs() { Length = value };
             var actual = hanger.Length;
             var expected = hanger.Length;
             //Assert
             Assert.AreEqual(expected, actual, "The values are the not same");
         }
 
-        [TestCase(TestName = "Assigning the correct InnerRadius")]
-        public void InnerRadius_CorrectValue_SetSameValue()
+        [TestCase(15,TestName = "Assigning the correct InnerRadius")]
+        public void InnerRadius_CorrectValue_SetSameValue(int value)
         {
             //SetUp
-            var hanger = new HangerParametrs() { InnerRadius = 15 };
+            var hanger = new HangerParametrs() { InnerRadius = value };
             var actual = hanger.InnerRadius;
             var expected = actual;
             //Assert
             Assert.AreEqual(expected, actual, "The values are the not same");
         }
 
-        [TestCase( TestName = "Assigning the correct RecessRadius")]
-        public void RecessRadius_CorrectValue_SetSameValue()
+        [TestCase(3, TestName = "Assigning the correct RecessRadius")]
+        public void RecessRadius_CorrectValue_SetSameValue(int value)
         {
             //SetUp
-            var hanger = new HangerParametrs() { RecessRadius = 3 };
+            var hanger = new HangerParametrs() { RecessRadius = value };
             var actual = hanger.RecessRadius;
             var expected = actual;
             //Assert
             Assert.AreEqual(expected, actual, "The values are the not same");
         }
 
-        [TestCase( TestName = "Assigning the correct Width")]
-        public void Width_CorrectValue_SetSameValue()
+        [TestCase(5, TestName = "Assigning the correct Width")]
+        public void Width_CorrectValue_SetSameValue(int value)
         {
             //SetUp
-            var hanger = new HangerParametrs() { Width = 5 };
+            var hanger = new HangerParametrs() { Width = value };
             var actual = hanger.Width;
             var expected = hanger.Width;
             //Assert
@@ -183,83 +196,61 @@ namespace HangerUnitTests
 
         #region NegativeTests
 
-        [TestCase(100, TestName = "Height value less than range")]
-        [TestCase(500, TestName = "Height value over than range")]
-        public void HeightTest_SetWrong(int wrongHeight)
+        [TestCase(1, HangerParametersType.InnerRadius,
+            TestName = "InnerRadius value less than range")]
+        [TestCase(700, HangerParametersType.InnerRadius,
+            TestName = "InnerRadius value over than range")]
+        [TestCase(1, HangerParametersType.Height,
+            TestName = "Height value less than range")]
+        [TestCase(700, HangerParametersType.Height,
+            TestName = "Height value over than range")]
+        [TestCase(1, HangerParametersType.Length,
+            TestName = "Length value less than range")]
+        [TestCase(700, HangerParametersType.Length,
+            TestName = "Length value over than range")]
+        [TestCase(1, HangerParametersType.Width,
+            TestName = "Width value less than range")]
+        [TestCase(700, HangerParametersType.Width,
+            TestName = "Width value over than range")]
+        [TestCase(1, HangerParametersType.InnerHeight,
+            TestName = "Inner Height value less than range")]
+        [TestCase(700, HangerParametersType.InnerHeight,
+            TestName = "Inner Height value over than range")]
+        [TestCase(2, HangerParametersType.OuterRadius,
+            TestName = "Outer Radius value less than range")]
+        [TestCase(700, HangerParametersType.OuterRadius,
+            TestName = "Outer Radius value over than range")]
+        [TestCase(1, HangerParametersType.RecessRadius,
+            TestName = "Recess Radius value less than range")]
+        [TestCase(700, HangerParametersType.RecessRadius,
+            TestName = "Recess Radius value over than range")]
+        [TestCase(1, HangerParametersType.LengthCenterRecess,
+            TestName = "Length Center Recess value less than range")]
+        [TestCase(700, HangerParametersType.LengthCenterRecess,
+            TestName = "Length Center Recess value over than range")]
+        public void TestGetErrors_HaveErrorsValue(int wrongValue,HangerParametersType type)
         {
 
-            //Assert
-            Assert.Throws<ArgumentException>(
-                () => { DefaultParameters.Height = wrongHeight; }, "$Value out of range");
-        }
-        [TestCase(300, TestName = "Length value less than range")]
-        [TestCase(500, TestName = "Length value over than range")]
-        public void LengthTest_SetWrong(int wrongLength)
-        {
-
-            //Assert
-            Assert.Throws<ArgumentException>(
-                () => { DefaultParameters.Length = wrongLength; }, "$Value out of range");
-        }
-
-        [TestCase(1, TestName = "Width value less than range")]
-        [TestCase(7, TestName = "Width value over than range")]
-        public void WidthTest_SetWrong(int wrongWidth)
-        {
-
-            //Assert
-            Assert.Throws<ArgumentException>(
-                () =>{ DefaultParameters.Width = wrongWidth; }, "$Value out of range");
-        }
-
-        [TestCase(10, TestName = "Inner Height value less than range")]
-        [TestCase(300, TestName = "Inner Height value over than range")]
-        public void InnerHeightTest_SetWrong(int wrongInnerHeight)
-        {
-
-            //Assert
-            Assert.Throws<ArgumentException>(
-                () => { DefaultParameters.InnerHeight = wrongInnerHeight; }, "$Value out of range");
-        }
-
-        [TestCase(10, TestName = "InnerRadius value less than range")]
-        [TestCase(35, TestName = "InnerRadius value over than range")]
-        public void InnerRadiusTest_SetWrong(int wrongInnerRadius)
-        {
-
-            //Assert
-            Assert.Throws<ArgumentException>(
-                () => { DefaultParameters.InnerRadius = wrongInnerRadius; }, "$Value out of range");
-        }
-
-        [TestCase(2, TestName = "Outer Radius value less than range")]
-        [TestCase(50, TestName = "Outer Radius value over than range")]
-        public void OuterRadiusTest_SetWrong(int wrongOuterRadius)
-        {
-
-            //Assert
-            Assert.Throws<ArgumentException>(
-                () => { DefaultParameters.OuterRadius = wrongOuterRadius; }, "$Value out of range");
-        }
-
-        [TestCase(1, TestName = "Recess Radius value less than range")]
-        [TestCase(7, TestName = "Recess Radius value over than range")]
-        public void RecessRadiusTest_SetWrong(int wrongRecessRadius)
-        {
-
-            //Assert
-            Assert.Throws<ArgumentException>(
-                () => { DefaultParameters.RecessRadius = wrongRecessRadius; }, "$Value out of range");
-        }
-
-        [TestCase(100, TestName = "Length Center Recess value less than range")]
-        [TestCase(700, TestName = "Length Center Recess value over than range")]
-        public void LengthCenterRecessTest_SetWrong(int wrongLengthCenterRecess)
-        {
-
-            //Assert
-            Assert.Throws<ArgumentException>(
-                () => { DefaultParameters.LengthCenterRecess = wrongLengthCenterRecess; }, "$Value out of range");
+            var expected = new HangerParametrs
+            {
+                InnerRadius = wrongValue,
+                Height = wrongValue,
+                InnerHeight = wrongValue,
+                Length = wrongValue,
+                LengthCenterRecess = wrongValue,
+                OuterRadius = wrongValue,
+                RecessRadius = wrongValue,
+                Width = wrongValue
+            };
+            var error =
+                expected.ErrorsDictionary[type];
+            Assert.Throws<ArgumentException>(() =>
+            {
+                if (error == expected.ErrorsDictionary[type])
+                {
+                    throw new ArgumentException();
+                }
+            },"Value out of range");
         }
         #endregion
     }
