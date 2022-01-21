@@ -30,22 +30,9 @@ namespace HangersPlugin
         /// </summary>
         private HangerParametrs _hangerParametrs = new HangerParametrs();
 
-        private Dictionary<TextBox, HangerParametersType> _textBoxesDictionary;
-
         public MainForm()
         {
             InitializeComponent();
-            _textBoxesDictionary = new Dictionary<TextBox, HangerParametersType>
-            {
-                {HeightTextBox, HangerParametersType.Height},
-                {LengthTextBox,HangerParametersType.Length},
-                {WidthTextBox,HangerParametersType.Width},
-                {InnerHeightTextBox,HangerParametersType.InnerHeight},
-                {InnerRadiusTextBox,HangerParametersType.InnerRadius},
-                {OuterRadiusTextBox,HangerParametersType.OuterRadius},
-                {RecessRadiusTextBox,HangerParametersType.RecessRadius},
-                {LengthCenterRecessTextBox,HangerParametersType.LengthCenterRecess}
-            };
         }
 
         /// <summary>
@@ -72,18 +59,23 @@ namespace HangersPlugin
         {
             try
             {
-
                 _hangerParametrs.ErrorsDictionary.Clear();
                 _hangerParametrs.Height = IntParse(HeightTextBox);
                 _hangerParametrs.Width = IntParse(WidthTextBox);
                 _hangerParametrs.Length = IntParse(LengthTextBox);
                 _hangerParametrs.InnerRadius = IntParse(InnerRadiusTextBox);
                 _hangerParametrs.RecessRadius = IntParse(RecessRadiusTextBox);
-                _hangerParametrs.InnerHeight = IntParse(HeightTextBox);
+
+                InnerHeightTextBox.Text = HeightTextBox.Text;
+                _hangerParametrs.InnerHeight = IntParse(InnerHeightTextBox);
                  InnerHeightTextBox.Text = _hangerParametrs.InnerHeight.ToString();
-                _hangerParametrs.OuterRadius = IntParse(InnerRadiusTextBox);
+
+                 OuterRadiusTextBox.Text = InnerRadiusTextBox.Text;
+                _hangerParametrs.OuterRadius = IntParse(OuterRadiusTextBox);
                 OuterRadiusTextBox.Text = _hangerParametrs.OuterRadius.ToString();
-                _hangerParametrs.LengthCenterRecess = IntParse(LengthTextBox);
+
+                LengthCenterRecessTextBox.Text = LengthTextBox.Text;
+                _hangerParametrs.LengthCenterRecess = IntParse(LengthCenterRecessTextBox);
                 LengthCenterRecessTextBox.Text = _hangerParametrs.LengthCenterRecess.ToString();
 
 
@@ -96,34 +88,29 @@ namespace HangersPlugin
                         message +=
                             _hangerParametrs.ErrorsDictionary[param]
                             + "\n";
-                        string textboxname = param.ToString();
+                        string textBoxName = param.ToString();
                         TextBox textBox =
-                            Controls.Find(textboxname + "TextBox", false)[0]
+                            Controls.Find(textBoxName + "TextBox", false)[0]
                                 as TextBox;
                         textBox.BackColor = _incorrectBackColor;
                     }
                     InfoLabel.Visible = true;
-                    MessageBox.Show(
-                        message,
-                        "Warning",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
+                    MessageBox.Show(message, "Warning",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
                     InfoLabel.Visible = false;
-                    foreach (var textBox in _textBoxesDictionary)
-                    {
-                        textBox.Key.BackColor = _correctBackColor;
-                    }
+                    var builder = new HangerBuilder();
+                    builder.Assembly(_hangerParametrs, BuildBracingCheckBox.Checked);
                 }
-                var builder = new HangerBuilder();
-                builder.Assembly(_hangerParametrs, BuildBracingCheckBox.Checked);
+                
             }
             catch (ArgumentException ex)
             {
                 InfoLabel.Visible = true;
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Warning",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

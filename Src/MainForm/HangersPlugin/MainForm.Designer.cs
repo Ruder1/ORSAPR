@@ -258,6 +258,55 @@
             this.BuildButton.UseVisualStyleBackColor = true;
             this.BuildButton.Click += new System.EventHandler(this.BuildButton_Click);
             // 
+            // HeightToolTip
+            // 
+            this.HeightToolTip.AutomaticDelay = 1000;
+            this.HeightToolTip.AutoPopDelay = 10000;
+            this.HeightToolTip.InitialDelay = 10;
+            this.HeightToolTip.ReshowDelay = 200;
+            // 
+            // LengthToolTip
+            // 
+            this.LengthToolTip.AutoPopDelay = 5000;
+            this.LengthToolTip.InitialDelay = 10;
+            this.LengthToolTip.ReshowDelay = 100;
+            // 
+            // WidthToolTip
+            // 
+            this.WidthToolTip.AutoPopDelay = 5000;
+            this.WidthToolTip.InitialDelay = 10;
+            this.WidthToolTip.ReshowDelay = 100;
+            // 
+            // InnerRadiusToolTip
+            // 
+            this.InnerRadiusToolTip.AutoPopDelay = 5000;
+            this.InnerRadiusToolTip.InitialDelay = 10;
+            this.InnerRadiusToolTip.ReshowDelay = 100;
+            // 
+            // OuterRadiusToolTip
+            // 
+            this.OuterRadiusToolTip.AutoPopDelay = 5000;
+            this.OuterRadiusToolTip.InitialDelay = 10;
+            this.OuterRadiusToolTip.ReshowDelay = 100;
+            // 
+            // InnerHeightToolTip
+            // 
+            this.InnerHeightToolTip.AutoPopDelay = 5000;
+            this.InnerHeightToolTip.InitialDelay = 10;
+            this.InnerHeightToolTip.ReshowDelay = 100;
+            // 
+            // RecessRadiusToolTip
+            // 
+            this.RecessRadiusToolTip.AutoPopDelay = 5000;
+            this.RecessRadiusToolTip.InitialDelay = 10;
+            this.RecessRadiusToolTip.ReshowDelay = 100;
+            // 
+            // LengthCenterRecessToolTip
+            // 
+            this.LengthCenterRecessToolTip.AutoPopDelay = 5000;
+            this.LengthCenterRecessToolTip.InitialDelay = 10;
+            this.LengthCenterRecessToolTip.ReshowDelay = 100;
+            // 
             // BuildBracingPantsLabel
             // 
             this.BuildBracingPantsLabel.AutoSize = true;
