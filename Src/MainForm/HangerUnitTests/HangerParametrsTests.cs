@@ -33,7 +33,8 @@ namespace HangerUnitTests
         {
             var expected = DefaultParameters.Height;
             var actual = expected;
-            Assert.AreEqual(expected,actual,$"{nameof(DefaultParameters.Height)}"+$" returns wrong value");
+            Assert.AreEqual(expected,actual,$"{nameof(DefaultParameters.Height)}"
+                                            +$" returns wrong value");
         }
 
         [TestCase(Description = "Positive test getter Length")]
@@ -41,7 +42,8 @@ namespace HangerUnitTests
         {
             var expected = DefaultParameters.Length;
             var actual = expected;
-            Assert.AreEqual(expected, actual, $"{nameof(DefaultParameters.Length)}" + $" returns wrong value");
+            Assert.AreEqual(expected, actual, $"{nameof(DefaultParameters.Length)}" 
+                                              + $" returns wrong value");
         }
 
         [TestCase(Description = "Positive test getter Width")]
@@ -49,7 +51,8 @@ namespace HangerUnitTests
         {
             var expected = DefaultParameters.Width;
             var actual = expected;
-            Assert.AreEqual(expected, actual, $"{nameof(DefaultParameters.Width)}" + $" returns wrong value");
+            Assert.AreEqual(expected, actual, $"{nameof(DefaultParameters.Width)}" 
+                                              + $" returns wrong value");
         }
 
         [TestCase(Description = "Positive test getter InnerHeight")]
@@ -57,14 +60,16 @@ namespace HangerUnitTests
         {
             var expected = DefaultParameters.InnerHeight;
             var actual =expected;
-            Assert.AreEqual(expected, actual, $"{nameof(DefaultParameters.InnerHeight)}" + $" returns wrong value");
+            Assert.AreEqual(expected, actual, $"{nameof(DefaultParameters.InnerHeight)}"
+                                              + $" returns wrong value");
         }
         [TestCase(Description = "Positive test getter InnerRadius")]
         public void InnerRadius_Get()
         {
             var expected = DefaultParameters.InnerRadius;
             var actual = expected;
-            Assert.AreEqual(expected, actual, $"{nameof(DefaultParameters.InnerRadius)}" + $" returns wrong value");
+            Assert.AreEqual(expected, actual, $"{nameof(DefaultParameters.InnerRadius)}"
+                                              + $" returns wrong value");
         }
 
         [TestCase(Description = "Positive test getter LengthCenterRecess")]
@@ -72,7 +77,8 @@ namespace HangerUnitTests
         {
             var expected = DefaultParameters.LengthCenterRecess;
             var actual = expected;
-            Assert.AreEqual(expected, actual, $"{nameof(DefaultParameters.LengthCenterRecess)}" + $" returns wrong value");
+            Assert.AreEqual(expected, actual, $"{nameof(DefaultParameters.LengthCenterRecess)}"
+                                              + $" returns wrong value");
         }
 
         [TestCase(Description = "Positive test getter OuterRadius")]
@@ -80,7 +86,8 @@ namespace HangerUnitTests
         {
             var expected = DefaultParameters.OuterRadius;
             var actual = expected;
-            Assert.AreEqual(expected, actual, $"{nameof(DefaultParameters.OuterRadius)}" + $" returns wrong value");
+            Assert.AreEqual(expected, actual, $"{nameof(DefaultParameters.OuterRadius)}"
+                                              + $" returns wrong value");
         }
 
         [TestCase(Description = "Positive test getter RecessRadius")]
@@ -88,7 +95,8 @@ namespace HangerUnitTests
         {
             var expected = DefaultParameters.RecessRadius;
             var actual = expected;
-            Assert.AreEqual(expected, actual, $"{nameof(DefaultParameters.RecessRadius)}" + $" returns wrong value");
+            Assert.AreEqual(expected, actual, $"{nameof(DefaultParameters.RecessRadius)}"
+                                              + $" returns wrong value");
         }
 
         [TestCase(TestName =

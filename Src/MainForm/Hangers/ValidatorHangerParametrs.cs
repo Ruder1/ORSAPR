@@ -18,12 +18,14 @@ namespace Hangers
         /// <param name="maxValue">Максимальное значение диапазона</param>
         /// <param name="value">Значение для проверки</param>
         /// <param name="type">Тип значения для проверки</param>
-        public static void CheckParametrsValue(int minValue, int maxValue, int value, HangerParametersType type)
+        public static void CheckParametrsValue(int minValue, int maxValue,
+            int value, HangerParametersType type)
         {
             if ( value < minValue || maxValue < value)
             {
                 throw new ArgumentException
-                ($"The value of {type} is not in the range " + minValue + " - " + maxValue);
+                ($"The value of {type} is not in the range " +
+                 minValue + " - " + maxValue);
             }
         }
     }

@@ -85,9 +85,9 @@ namespace HangerKompassBuilder
             var groupID = doc2d.ksNewGroup(0);
             //Внутренняя линия
             SketchHalf(doc2d, parameters.Length / 2 - 30, -parameters.OuterRadius,
-                parameters.InnerRadius, parameters.Length / 2, -15, parameters.Length / 2 - 15,
-                -parameters.OuterRadius - 15, -parameters.InnerRadius * 2 - 15,
-                -parameters.InnerHeight);
+                parameters.InnerRadius, parameters.Length / 2, -15,
+                parameters.Length / 2 - 15, -parameters.OuterRadius - 15,
+                -parameters.InnerRadius * 2 - 15, -parameters.InnerHeight);
             //Внешняя линия
             SketchHalf(doc2d, parameters.Length / 2 - 30, -parameters.OuterRadius,
                 parameters.OuterRadius, parameters.Length / 2, 0, parameters.Length / 2 ,
@@ -148,8 +148,8 @@ namespace HangerKompassBuilder
                 posY1, -1, 1);
 
             doc2d.ksArcByPoint(parameters.LengthCenterRecess - 5, posY1, 5,
-                parameters.LengthCenterRecess - 5, posY2, parameters.LengthCenterRecess,
-                posY1, -1, 1);
+                parameters.LengthCenterRecess - 5, posY2,
+                parameters.LengthCenterRecess, posY1, -1, 1);
             doc2d.ksArcByPoint(parameters.LengthCenterRecess - 2.5, posY1, 2.5,
                 parameters.LengthCenterRecess, posY1, parameters.LengthCenterRecess - 5,
                 posY1, -1, 1);
