@@ -49,6 +49,7 @@ namespace HangersPlugin
             }
         }
 
+        //TODO: XML
         private void BuildButton_Click(object sender, EventArgs e)
         {
             try
@@ -82,6 +83,7 @@ namespace HangersPlugin
                         message +=
                             _hangerParametrs.ErrorsDictionary[param]
                             + "\n";
+                        //TODO:?
                         string textBoxName = param.ToString();
                         TextBox textBox =
                             Controls.Find(textBoxName + "TextBox", false)[0]

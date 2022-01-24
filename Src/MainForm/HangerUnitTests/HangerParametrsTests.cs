@@ -28,6 +28,7 @@ namespace HangerUnitTests
 
         #region PositiveTests
 
+        //TODO: дубль
         [TestCase(Description = "Positive test getter Height")]
         public void HeightTest_Get()
         {
@@ -111,6 +112,7 @@ namespace HangerUnitTests
             Assert.IsEmpty(actual, "Словарь не пуст");
         }
 
+        //TODO: дубль
         [TestCase(230, TestName = "Assigning the correct Height")]
         public void Height_CorrectValue_SetSameValue(int value)
         {
@@ -238,7 +240,6 @@ namespace HangerUnitTests
             TestName = "Length Center Recess value over than range")]
         public void TestGetErrors_HaveErrorsValue(int wrongValue,HangerParametersType type)
         {
-
             var expected = new HangerParametrs
             {
                 InnerRadius = wrongValue,

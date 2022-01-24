@@ -32,6 +32,7 @@ namespace HangerKompassBuilder
             }
         }
 
+        //TODO: Несоответствие XML-комментария сигнатуре метода 
         /// <summary>
         /// Создает вешалку
         /// </summary>
@@ -83,6 +84,7 @@ namespace HangerKompassBuilder
             var sketchDef = CreateSketch(Obj3dType.o3d_planeXOZ);
             var doc2d = (ksDocument2D)sketchDef.BeginEdit();
             var groupID = doc2d.ksNewGroup(0);
+            //TODO: to const
             //Внутренняя линия
             SketchHalf(doc2d, parameters.Length / 2 - 30, -parameters.OuterRadius,
                 parameters.InnerRadius, parameters.Length / 2, -15,
@@ -92,7 +94,7 @@ namespace HangerKompassBuilder
             SketchHalf(doc2d, parameters.Length / 2 - 30, -parameters.OuterRadius,
                 parameters.OuterRadius, parameters.Length / 2, 0, parameters.Length / 2 ,
                 -parameters.OuterRadius - 30, -parameters.OuterRadius * 2,
-                -parameters.InnerHeight-15);
+                -parameters.InnerHeight - 15);
             doc2d.ksEndObj();
             doc2d.ksSymmetryObj(groupID, 0, 0, 0, -15, "1");
             sketchDef.EndEdit();
@@ -161,6 +163,7 @@ namespace HangerKompassBuilder
 
         }
 
+        //TODO: Несоответствие XML-комментария сигнатуре метода 
         /// <summary>
         /// Метод для выполнения выдавливания
         /// </summary>
@@ -187,7 +190,7 @@ namespace HangerKompassBuilder
         /// Метод для создания эскиза на выбранной плоскости
         /// </summary>
         /// <param name="planeType">Плоскость эскиза</param>
-        /// <returns></returns>
+        /// <returns>//TODO:</returns>
         private ksSketchDefinition CreateSketch(Obj3dType planeType)
         {
             var plane = (ksEntity)_connector._part.

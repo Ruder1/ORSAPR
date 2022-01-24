@@ -186,6 +186,7 @@ namespace Hangers
             }
         }
 
+        //TODO: XML
         public void SetValue(ref int property, int value,
             int minValue, int maxValue, HangerParametersType parameter)
         {
