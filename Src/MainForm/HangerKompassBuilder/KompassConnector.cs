@@ -11,11 +11,13 @@ namespace HangerKompassBuilder
     /// </summary>
     internal class KompassConnector
     {
+        //TODO: RSDN
         /// <summary>
         /// Объект интерфейса _kompasObject для взимодействия с Kompas 3D
         /// </summary>
         public KompasObject _kompasObject { get; }
 
+        //TODO: RSDN
         /// <summary>
         /// Объект интерфейса KsPart для взимодействия с компонентом Kompas 3D
         /// </summary>
@@ -41,6 +43,7 @@ namespace HangerKompassBuilder
             _kompasObject.ActivateControllerAPI();
         }
 
+        //TODO: naming
         /// <summary>
         /// Метод для создания нового компонента в Kompas 3D.
         /// </summary>
