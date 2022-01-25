@@ -11,17 +11,17 @@ namespace HangerKompassBuilder
     /// </summary>
     internal class KompassConnector
     {
-        //TODO: RSDN
+        //TODO: RSDN +
         /// <summary>
-        /// Объект интерфейса _kompasObject для взимодействия с Kompas 3D
+        /// Объект интерфейса KompasObject для взимодействия с Kompas 3D
         /// </summary>
-        public KompasObject _kompasObject { get; }
+        public KompasObject KompasObject { get; }
 
-        //TODO: RSDN
+        //TODO: RSDN +
         /// <summary>
         /// Объект интерфейса KsPart для взимодействия с компонентом Kompas 3D
         /// </summary>
-        public ksPart _part { get; set; }
+        public ksPart Part { get; set; }
 
         /// <summary>
         /// Конструктор класса, выполняет запуск Kompas 3D
@@ -31,27 +31,27 @@ namespace HangerKompassBuilder
             var progId = "KOMPAS.Application.5";
             try
             {
-                _kompasObject = (KompasObject)Marshal2.GetActiveObject(progId);
+                KompasObject = (KompasObject)Marshal2.GetActiveObject(progId);
             }
             catch (COMException)
             {
-                _kompasObject = (KompasObject)Activator.
+                KompasObject = (KompasObject)Activator.
                     CreateInstance(Type.GetTypeFromProgID(progId));
             }
 
-            _kompasObject.Visible = true;
-            _kompasObject.ActivateControllerAPI();
+            KompasObject.Visible = true;
+            KompasObject.ActivateControllerAPI();
         }
 
-        //TODO: naming
+        //TODO: naming +
         /// <summary>
         /// Метод для создания нового компонента в Kompas 3D.
         /// </summary>
-        public void GetNewPart()
+        public void SetNewPart()
         {
-            var ksDoc = (ksDocument3D)_kompasObject.Document3D();
+            var ksDoc = (ksDocument3D)KompasObject.Document3D();
             ksDoc.Create(false, true);
-            _part = (ksPart)ksDoc.GetPart((short)Part_Type.pTop_Part);
+            Part = (ksPart)ksDoc.GetPart((short)Part_Type.pTop_Part);
         }
     }
 }

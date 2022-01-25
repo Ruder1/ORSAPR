@@ -186,22 +186,31 @@ namespace Hangers
             }
         }
 
-        //TODO: XML
+        //TODO: XML +
+        /// <summary>
+        /// Метод устанавливающий значение по ссылке
+        /// </summary>
+        /// <param name="property">ссылка на значение</param>
+        /// <param name="value">устанавливаемое значение</param>
+        /// <param name="minValue">минимальное значение</param>
+        /// <param name="maxValue">Максимальное значение</param>
+        /// <param name="type">Тип параметра</param>
         public void SetValue(ref int property, int value,
-            int minValue, int maxValue, HangerParametersType parameter)
+            int minValue, int maxValue, HangerParametersType type)
         {
             try
             {
 
                 ValidatorHangerParametrs.CheckParametrsValue(minValue, maxValue,
-                    value, parameter);
+                    value, type);
                 property = value;
             }
             catch (Exception ex)
             {
-                ErrorsDictionary.Add(parameter,
+                ErrorsDictionary.Add(type,
                     ex.Message);
             }
         }
+
     }
 }

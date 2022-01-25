@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using Hangers;
@@ -24,9 +25,26 @@ namespace HangersPlugin
         /// </summary>
         private HangerParametrs _hangerParametrs = new HangerParametrs();
 
+        /// <summary>
+        /// Словарь содержащий пары (Тип параметра, Текст бокс)
+        /// </summary>
+        private readonly Dictionary<HangerParametersType, TextBox> _textBoxesDictionary;
+
         public MainForm()
         {
             InitializeComponent();
+
+            _textBoxesDictionary = new Dictionary<HangerParametersType, TextBox>
+            {
+                { HangerParametersType.Height, HeightTextBox },
+                { HangerParametersType.Length, LengthTextBox },
+                { HangerParametersType.Width, WidthTextBox },
+                { HangerParametersType.InnerRadius, InnerRadiusTextBox },
+                { HangerParametersType.RecessRadius, RecessRadiusTextBox },
+                { HangerParametersType.InnerHeight, InnerHeightTextBox },
+                { HangerParametersType.OuterRadius, OuterRadiusTextBox },
+                { HangerParametersType.LengthCenterRecess, LengthCenterRecessTextBox }
+            };
         }
 
         /// <summary>
@@ -49,7 +67,12 @@ namespace HangersPlugin
             }
         }
 
-        //TODO: XML
+        //TODO: XML +
+        /// <summary>
+        /// Обработчик события нажатие на кнопку Build
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BuildButton_Click(object sender, EventArgs e)
         {
             try
@@ -83,13 +106,10 @@ namespace HangersPlugin
                         message +=
                             _hangerParametrs.ErrorsDictionary[param]
                             + "\n";
-                        //TODO:?
-                        string textBoxName = param.ToString();
-                        TextBox textBox =
-                            Controls.Find(textBoxName + "TextBox", false)[0]
-                                as TextBox;
-                        textBox.BackColor = _incorrectBackColor;
+                        //TODO:? (Неправильное использование nameTextBox+"TextBox") +
+                        _textBoxesDictionary[param].BackColor = _incorrectBackColor;
                     }
+
                     InfoLabel.Visible = true;
                     MessageBox.Show(message, "Warning",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
