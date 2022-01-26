@@ -16,6 +16,21 @@ namespace HangerKompassBuilder
         private KompassConnector _connector;
 
         /// <summary>
+        /// Константы для построения детали
+        /// </summary>
+        private const int OneFourth = 4;
+        private const int ContinueOneFourth = 10;
+        private const int BeginOneSecond = 2;
+        private const int ContinueOneSecond = 30;
+        private const int HalfRadius = 15;
+        private const int PosY1 = 5;
+        private const int PosY2 = 10;
+        private const int IncreaseHanger = 35;
+        private const double WidthBracingPants = 2.5;
+        private const int HeightFirst = 22;
+        private const int HeightSecond = 12;
+
+        /// <summary>
         /// Метод для построения модели Плечиков
         /// </summary>
         /// <param name="parameters">Параметры Плечиков</param>
@@ -42,16 +57,16 @@ namespace HangerKompassBuilder
             var doc2d = (ksDocument2D) sketchDef.BeginEdit();
 
             //TODO: to const
-            var y1 = -parameters.InnerHeight - 15;
-            var y2 = -parameters.Height + 35;
-            var heightFirst = -parameters.InnerHeight - 22;
-            var heightSecond = -parameters.InnerHeight - 12;
+            var y1 = -parameters.InnerHeight - HalfRadius;
+            var y2 = -parameters.Height + IncreaseHanger;
+            var yFirst = -parameters.InnerHeight - HeightFirst;
+            var ySecond = -parameters.InnerHeight - HeightSecond;
             //Внутренняя линия
-            SketchHalfHanger(doc2d, 0, y1, -20, heightFirst,
+            SketchHalfHanger(doc2d, 0, y1, -20, yFirst,
                 20, y2, 20);
             //Внешняя линия
             SketchHalfHanger(doc2d, 0, -parameters.InnerHeight,
-                -35, heightSecond, 35, y2, 35);
+                -IncreaseHanger, ySecond, IncreaseHanger, y2, IncreaseHanger);
 
             doc2d.ksArcByPoint(27.5, y2, 7.5, 20, y2,
                 35, y2, -1, 1);
@@ -90,18 +105,18 @@ namespace HangerKompassBuilder
             var groupID = doc2d.ksNewGroup(0);
 
             //TODO: to const
-            var commonLength = parameters.Length / 2;
-            var lengthFirst = parameters.Length / 2 - 30;
-            var lengthSecond = parameters.Length / 2 - 15;
-            var radiusFirst = -parameters.OuterRadius - 15;
-            var radiusSecond = -parameters.InnerRadius * 2 - 15;
-            var radiusThird = -parameters.OuterRadius - 30;
-            var radiusFourth = -parameters.OuterRadius * 2;
-            var height = -parameters.InnerHeight - 15;
+            var commonLength = parameters.Length / BeginOneSecond;
+            var lengthFirst = parameters.Length / BeginOneSecond - ContinueOneSecond;
+            var lengthSecond = parameters.Length / BeginOneSecond - HalfRadius;
+            var radiusFirst = -parameters.OuterRadius - HalfRadius;
+            var radiusSecond = -parameters.InnerRadius * BeginOneSecond - HalfRadius;
+            var radiusThird = -parameters.OuterRadius - HalfRadius;
+            var radiusFourth = -parameters.OuterRadius * BeginOneSecond;
+            var height = -parameters.InnerHeight - HalfRadius;
 
             //Внутренняя линия
             SketchHalf(doc2d, lengthFirst, -parameters.OuterRadius,
-                parameters.InnerRadius, commonLength, -15, lengthSecond,
+                parameters.InnerRadius, commonLength, -HalfRadius, lengthSecond,
                 radiusFirst, radiusSecond, -parameters.InnerHeight);
             //Внешняя линия
             SketchHalf(doc2d, lengthFirst, -parameters.OuterRadius,
@@ -109,7 +124,7 @@ namespace HangerKompassBuilder
                 radiusThird, radiusFourth, height);
 
             doc2d.ksEndObj();
-            doc2d.ksSymmetryObj(groupID, 0, 0, 0, -15, "1");
+            doc2d.ksSymmetryObj(groupID, 0, 0, 0, -HalfRadius, "1");
             sketchDef.EndEdit();
             CreateExtrusion(sketchDef,parameters.Width,true);
         }
@@ -147,28 +162,26 @@ namespace HangerKompassBuilder
             var groupId = doc2d.ksNewGroup(0);
 
             //TODO: to const
-            var lengthBegin = parameters.Length / 4;
-            var lengthFirst = (parameters.Length / 4) + 10;
-            var lengthSecond = parameters.LengthCenterRecess - 5;
-            var lengthThird = parameters.LengthCenterRecess - 2.5;
-            var posY1 = 5;
-            var posY2 = 10;
-            SketchBracingPants(doc2d, posY1, lengthFirst, lengthSecond,
-                lengthBegin, posY2, 10);
-            SketchBracingPants(doc2d, posY2, lengthFirst, lengthSecond,
-                lengthBegin, posY1,5);
+            var lengthBegin = parameters.Length / OneFourth;
+            var lengthFirst = (parameters.Length / OneFourth) + ContinueOneFourth;
+            var lengthSecond = parameters.LengthCenterRecess - PosY1;
+            var lengthThird = parameters.LengthCenterRecess - WidthBracingPants;
+            SketchBracingPants(doc2d, PosY1, lengthFirst, lengthSecond,
+                lengthBegin, PosY2, 10);
+            SketchBracingPants(doc2d, PosY2, lengthFirst, lengthSecond,
+                lengthBegin, PosY1, PosY1);
 
-            doc2d.ksLineSeg(lengthBegin, 0, lengthBegin + 5, 0, 1);
+            doc2d.ksLineSeg(lengthBegin, 0, lengthBegin + PosY1, 0, 1);
 
-            doc2d.ksArcByPoint(lengthSecond, posY1, 5, lengthSecond,
-                posY2, parameters.LengthCenterRecess, 
-                posY1, -1, 1);
-            doc2d.ksArcByPoint(lengthThird, posY1, 2.5,
-                parameters.LengthCenterRecess, posY1, lengthSecond,
-                posY1, -1, 1);
+            doc2d.ksArcByPoint(lengthSecond, PosY1, PosY1, lengthSecond,
+                PosY2, parameters.LengthCenterRecess, 
+                PosY1, -1, 1);
+            doc2d.ksArcByPoint(lengthThird, PosY1, 2.5,
+                parameters.LengthCenterRecess, PosY1, lengthSecond,
+                PosY1, -1, 1);
 
             doc2d.ksEndObj();
-            doc2d.ksSymmetryObj(groupId, 0, 0, 0, -15, "1");
+            doc2d.ksSymmetryObj(groupId, 0, 0, 0, -HalfRadius, "1");
             sketchDef.EndEdit();
             CreateExtrusion(sketchDef, parameters.Width, true);
         }

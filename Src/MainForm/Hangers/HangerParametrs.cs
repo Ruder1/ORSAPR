@@ -186,7 +186,6 @@ namespace Hangers
             }
         }
 
-        //TODO: XML +
         /// <summary>
         /// Метод устанавливающий значение по ссылке
         /// </summary>
