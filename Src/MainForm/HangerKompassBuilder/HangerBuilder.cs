@@ -31,8 +31,7 @@ namespace HangerKompassBuilder
                 BuildBracingPants(parameters);
             }
         }
-
-        //TODO: Несоответствие XML-комментария сигнатуре метода +
+        
         /// <summary>
         /// Создает крепеж для вешалки
         /// </summary>
@@ -42,6 +41,7 @@ namespace HangerKompassBuilder
             var sketchDef = CreateSketch(Obj3dType.o3d_planeXOZ);
             var doc2d = (ksDocument2D) sketchDef.BeginEdit();
 
+            //TODO: to const
             var y1 = -parameters.InnerHeight - 15;
             var y2 = -parameters.Height + 35;
             var heightFirst = -parameters.InnerHeight - 22;
@@ -89,7 +89,7 @@ namespace HangerKompassBuilder
             var doc2d = (ksDocument2D)sketchDef.BeginEdit();
             var groupID = doc2d.ksNewGroup(0);
 
-            //TODO: to const +
+            //TODO: to const
             var commonLength = parameters.Length / 2;
             var lengthFirst = parameters.Length / 2 - 30;
             var lengthSecond = parameters.Length / 2 - 15;
@@ -145,6 +145,8 @@ namespace HangerKompassBuilder
             var sketchDef = CreateSketch(Obj3dType.o3d_planeXOZ);
             var doc2d = (ksDocument2D)sketchDef.BeginEdit();
             var groupId = doc2d.ksNewGroup(0);
+
+            //TODO: to const
             var lengthBegin = parameters.Length / 4;
             var lengthFirst = (parameters.Length / 4) + 10;
             var lengthSecond = parameters.LengthCenterRecess - 5;
@@ -188,8 +190,7 @@ namespace HangerKompassBuilder
             doc2d.ksArcByPoint(lengthFirst, 0, rad1, lengthBegin, 0,
                 lengthFirst, posY2, -1, 1);
         }
-
-        //TODO: Несоответствие XML-комментария сигнатуре метода  +
+        
         /// <summary>
         /// Метод для выполнения выдавливания
         /// </summary>

@@ -27,8 +27,7 @@ namespace HangerUnitTests
             };
 
         #region PositiveTests
-
-        //TODO: дубль +
+        
         [TestCase(230, HangerParametersType.Height,
             Description = "Positive test getter Height")]
         [TestCase(390, HangerParametersType.Length,

@@ -67,7 +67,6 @@ namespace HangersPlugin
             }
         }
 
-        //TODO: XML +
         /// <summary>
         /// Обработчик события нажатие на кнопку Build
         /// </summary>
@@ -106,7 +105,6 @@ namespace HangersPlugin
                         message +=
                             _hangerParametrs.ErrorsDictionary[param]
                             + "\n";
-                        //TODO:? (Неправильное использование nameTextBox+"TextBox") +
                         _textBoxesDictionary[param].BackColor = _incorrectBackColor;
                     }
 
