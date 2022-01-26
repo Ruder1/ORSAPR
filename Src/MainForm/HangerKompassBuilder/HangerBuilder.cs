@@ -55,8 +55,7 @@ namespace HangerKompassBuilder
         {
             var sketchDef = CreateSketch(Obj3dType.o3d_planeXOZ);
             var doc2d = (ksDocument2D) sketchDef.BeginEdit();
-
-            //TODO: to const
+            
             var y1 = -parameters.InnerHeight - HalfRadius;
             var y2 = -parameters.Height + IncreaseHanger;
             var yFirst = -parameters.InnerHeight - HeightFirst;
@@ -103,8 +102,7 @@ namespace HangerKompassBuilder
             var sketchDef = CreateSketch(Obj3dType.o3d_planeXOZ);
             var doc2d = (ksDocument2D)sketchDef.BeginEdit();
             var groupID = doc2d.ksNewGroup(0);
-
-            //TODO: to const
+            
             var commonLength = parameters.Length / BeginOneSecond;
             var lengthFirst = parameters.Length / BeginOneSecond - ContinueOneSecond;
             var lengthSecond = parameters.Length / BeginOneSecond - HalfRadius;
@@ -160,8 +158,7 @@ namespace HangerKompassBuilder
             var sketchDef = CreateSketch(Obj3dType.o3d_planeXOZ);
             var doc2d = (ksDocument2D)sketchDef.BeginEdit();
             var groupId = doc2d.ksNewGroup(0);
-
-            //TODO: to const
+            
             var lengthBegin = parameters.Length / OneFourth;
             var lengthFirst = (parameters.Length / OneFourth) + ContinueOneFourth;
             var lengthSecond = parameters.LengthCenterRecess - PosY1;
